@@ -1,0 +1,103 @@
+.main-section{
+    margin: 120px 50px;
+}
+
+/* -------------------- MAIN-HEADER START -------------------- */
+
+.main__header-container{
+    margin: 20px 10px;
+}
+
+.main__content-container{
+    margin: 20px 0;
+}
+
+.main__content-title{
+    font-size: 2rem;
+}
+
+.main__filter-container{
+    display: flex;
+}
+
+.main__filters{
+    margin: 0 5px;
+    padding: 8px 15px;
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.main__filters:hover{
+    transform: scale(1.05);
+}
+
+.main__filter-input{
+    width: 100%;
+    margin-right: 5px;
+    padding: 0 20px;
+}
+
+.main__filters, .main__filter-input{
+    background-color: transparent;
+    border: solid 1px #333;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* -------------------- MAIN-CARDS START -------------------- */
+
+.main__lessons-cards-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.main__lessons-cards{
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px 10px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px 0 #ddd;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.main__lessons-cards:hover{
+    transform: scale(1.03);
+}
+
+.main__lessons-cards-layout{
+    height: 110px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.main__lessons-cards-content{
+    padding: 20px;
+}
+
+.main__lessons-cards-content-top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.main__lessons-cards-content-category{
+    background-color: #58cc02;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+
+.main__lessons-cards-content-category, .main__lessons-cards-content-time{
+    font-size: 12px;
+}
+
+.main__lessons-cards-content-title{
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.main__lessons-cards-content-description{
+    font-size: 0.9rem;
+}
