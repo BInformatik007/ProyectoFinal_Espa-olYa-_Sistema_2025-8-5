@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EspañolYa! - Bienvenido</title>
+  <link rel="stylesheet" href="/LP_Esp/css/stylesLogin.css">
+  <link rel="icon" href="/LP_Esp/media/imgs_Login/logo-pestaña.png" type="image/png">
+</head>
+<body>
+  <div class="container">
+    <!-- Panel Izquierdo (Información) -->
+    <div class="card left-card">
+      <div class="circle-bg circle-top"></div>
+      <div class="circle-bg circle-bottom"></div>
+      
+      <div class="content login-content">
+        <img src="/LP_Esp/media/imgs_Login/logo.png" alt="EspañolYa!" class="logo">
+        <h1>¡Bienvenido de Nuevo!</h1>
+        <p>Para mantenerte conectado con nosotros, por favor inicia sesión con tu información personal</p>
+        <button class="btn-outline" onclick="toggleForm('register')">REGISTRARSE</button>
+      </div>
+
+      <div class="content register-content hidden">
+        <img src="/LP_Esp/media/imgs_Login/logo.png" alt="EspañolYa!" class="logo">
+        <h1>¡Unete para Aprender!</h1>
+        <p>Si ya tienes una cuenta, inicia sesión para continuar tu aprendizaje del español</p>
+        <button class="btn-outline" onclick="toggleForm('login')">INICIAR SESIÓN</button>
+      </div>
+    </div>
+
+    <!-- Panel Derecho (Formularios) -->
+    <div class="card right-card">
+      <!-- Formulario de Login -->
+      <div class="form-container login-form">
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <div class="form-group">
+            <input type="text" name="matricula" placeholder="Matrícula" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Contraseña" required>
+          </div>
+          <button type="submit" class="btn-solid">INICIAR SESIÓN</button>
+        </form>
+      </div>
+
+      <!-- Formulario de Registro -->
+      <div class="form-container register-form hidden">
+        <h2>Registro Completo</h2>
+        <form id="registrationForm" onsubmit="handleRegistration(event)">
+          <div class="form-group">
+            <input type="text" name="matricula" placeholder="Matrícula" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="nombres" placeholder="Nombres" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="apellidos" placeholder="Apellidos" required>
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <input type="password" name="password" placeholder="Contraseña" required>
+          </div>
+          <div class="form-group checkbox-group">
+            <input type="checkbox" id="terminos" name="terminos" required>
+            <label for="terminos">Acepto los términos y condiciones</label>
+          </div>
+          <button type="submit" class="btn-solid">CREAR CUENTA</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/LP_Esp/js/scriptLogin.js"></script>
+</body>
+</html>

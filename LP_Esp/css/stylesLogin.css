@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+  
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(/LP_Esp/media/imgs_Login/fondo\ pag.png);
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; 
+    padding: 1rem;
+  }
+  
+  .container {
+    display: flex;
+    max-width: 1000px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    min-height: 600px;
+  }
+  
+  .card {
+    padding: 2rem;
+    width: 50%;
+    position: absolute;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+  }
+  
+  .left-card {
+    background-color: #10b981;
+    color: white;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .right-card {
+    background-color: white;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .container.register-mode .left-card {
+    transform: translateX(100%);
+  }
+  
+  .container.register-mode .right-card {
+    transform: translateX(-100%);
+    z-index: 2;
+  }
+  
+  .circle-bg {
+    position: absolute;
+    width: 16rem;
+    height: 16rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: transform 0.6s ease-in-out;
+  }
+  
+  .circle-top {
+    top: -3rem;
+    left: -3rem;
+  }
+  
+  .circle-bottom {
+    bottom: -3rem;
+    right: -3rem;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    transition: opacity 0.3s ease-in-out, transform 0.6s ease-in-out;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .logo {
+    width: 180px;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    transition: transform 0.3s ease;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+  
+  h1 {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+  
+  .form-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+  }
+  
+  h2 {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  input:not([type="checkbox"]), select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    background-color: #f3f4f6;
+    border-radius: 0.5rem;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+  
+  input:focus, select:focus {
+    box-shadow: 0 0 0 2px #10b981;
+    border-color: #10b981;
+  }
+  
+  .checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .checkbox-group input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+  }
+  
+  .checkbox-group label {
+    font-size: clamp(0.75rem, 2vw, 0.875rem);
+    color: #4b5563;
+    cursor: pointer;
+  }
+  
+  .btn-outline {
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    padding: 0.75rem 3rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    white-space: nowrap;
+  }
+  
+  .btn-outline:hover {
+    background-color: white;
+    color: #10b981;
+  }
+  
+  .btn-solid {
+    width: 100%;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+    font-size: clamp(0.875rem, 2vw, 1rem);
+    font-weight: 600;
+  }
+  
+  .btn-solid:hover {
+    background-color: #059669;
+  }
+  
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      min-height: auto;
+      max-height: none;
+      height: auto;
+    }
+    
+    .card {
+      position: relative;
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+      transform: none;
+    }
+    
+    .left-card {
+      padding: 3rem 1.5rem;
+    }
+    
+    .right-card {
+      padding: 2rem 1.5rem;
+    }
+  
+    .container.register-mode .left-card {
+      transform: translateY(100%);
+    }
+  
+    .container.register-mode .right-card {
+      transform: translateY(-100%);
+    }
+  
+    .form-container {
+      position: relative;
+      height: auto;
+      opacity: 1;
+      visibility: visible;
+    }
+  
+    .form-container.hidden {
+      opacity: 0;
+      visibility: hidden;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  
+    .circle-bg {
+      width: 12rem;
+      height: 12rem;
+    }
+  
+    .form-container {
+      padding: 0 1rem;
+    }
+  
+    .btn-outline {
+      padding: 0.75rem 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      padding: 0.5rem;
+    }
+  
+    .container {
+      border-radius: 0.5rem;
+    }
+  
+    .card {
+      padding: 1.5rem 1rem;
+    }
+  
+    .circle-bg {
+      width: 8rem;
+      height: 8rem;
+    }
+  
+    .logo {
+      width: 140px;
+      margin-bottom: 1.5rem;
+    }
+  
+    .form-group {
+      margin-bottom: 0.75rem;
+    }
+  
+    input:not([type="checkbox"]), select {
+      padding: 0.625rem;
+    }
+  
+    .btn-outline {
+      padding: 0.625rem 1.5rem;
+    }
+  }
