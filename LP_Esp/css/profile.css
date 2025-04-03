@@ -1,0 +1,44 @@
+.profile-section{
+    margin: 120px 50px;
+}
+
+/* -------------------- PROFILE SECTION --------------------  */
+
+.profile__container{
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    width: 30%;
+    padding: 40px;
+}
+
+.profile__data-counting-container{
+    margin-top: 30px;
+}
+
+.profile__top-content-container, .profile__user-level, .profile__data-counting{
+    text-align: center;
+}
+
+.profile__title-data{
+    margin: 0 10px;
+}
+
+.profile__data-counting-container{
+    display: flex;
+}
+
+.profile__buttons-container{
+    display: flex;
+    flex-direction: column;
+}
+
+/* -------------------- PROGRESS PROFILE SECTION -------------------- */
+
+
+
+/* -------------------- STATISTICS PROFILE SECTION -------------------- */
+
+
+
+/* -------------------- INSIGNIA PROFILE SECTION -------------------- */
