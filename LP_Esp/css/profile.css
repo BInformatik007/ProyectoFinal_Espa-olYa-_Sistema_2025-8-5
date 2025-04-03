@@ -31,6 +31,11 @@
 .profile__buttons-container{
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
+}
+
+.profile__btn{
+    margin: 5px 0;
 }
 
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */
