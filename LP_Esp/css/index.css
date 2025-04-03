@@ -17,7 +17,7 @@
 
 .green-text{
     font-size: 60px;
-    color: #58cc02;
+    color: #10b981;
 }
 
 .layout__st{
@@ -36,7 +36,7 @@
 }
 
 .layout__btn-link{
-    background-color: #58cc02;
+    background-color: #10b981;
     padding: 16px 32px;
     color: #fff;
     border-radius: 10px;
@@ -82,7 +82,7 @@
     background-color: #58cc021a;
     border-radius: 5px;
     font-size: 24px;
-    color: #58cc02;
+    color: #10b981;
     padding: 10px;
 }
 
@@ -110,7 +110,7 @@
 .main__module-cards-progress-bar{
     width: 100%;
     height: 100%;
-    background-color: #58cc02;
+    background-color: #10b981;
     border-radius: 4px;
 }
 
@@ -284,7 +284,7 @@
 
     .header__menu-icon{
         position: absolute;
-        background-color: #58cc02;
+        background-color: #10b981;
         color: #fff;
         cursor: pointer;
         right: 20px;
