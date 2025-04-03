@@ -29,7 +29,7 @@
 }
 
 .main__filters:hover{
-    transform: scale(1.05);
+    transform: scale(0.90);
 }
 
 .main__filter-input{
