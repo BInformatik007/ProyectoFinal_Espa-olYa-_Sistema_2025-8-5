@@ -1,5 +1,5 @@
 .profile-section{
-    margin: 120px 50px;
+    margin: 120px 150px;
 }
 
 /* -------------------- PROFILE SECTION --------------------  */
@@ -8,7 +8,7 @@
     display: flex;
     justify-content: center;
     background-color: #fff;
-    width: 30%;
+    width: 35%;
     padding: 40px;
 }
 
@@ -20,7 +20,18 @@
     text-align: center;
 }
 
+.profile__profile-img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile__user-name{
+    font-size: 1.4rem;
+}
+
 .profile__title-data{
+    font-size: 0.8rem;
     margin: 0 10px;
 }
 
@@ -36,6 +47,20 @@
 
 .profile__btn{
     margin: 5px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.profile__btn:hover{
+    transform: scale(0.95);
+}
+
+.profile__edit-profile{
+    background-color: #10b981;
 }
 
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */
