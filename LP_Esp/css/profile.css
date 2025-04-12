@@ -1,5 +1,7 @@
 .sections-container{
     margin: 150px 120px;
+    display: flex;
+    justify-content: space-between;
 }
 
 /* -------------------- PROFILE SECTION --------------------  */
@@ -8,15 +10,15 @@
     display: flex;
     justify-content: center;
     background-color: #fff;
-    width: 35%;
-    padding: 40px 0;
+    padding: 30px 0;
     border-radius: 20px;
     border: 1px solid #ccc;
+    width: 25vw;
 }
 
 .profile__data-counting-container{
     margin-top: 30px;
-}
+}   
 
 .profile__top-content-container, .profile__user-level, .profile__data-counting{
     text-align: center;
@@ -77,9 +79,18 @@
 
 /* -------------------- NAV BAR PROFILE SECTION -------------------- */
 
-.nav-bar__ul{
+/* .nav-bar__ul{
     display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
 }
+
+.nav-bar__link{
+    display: block;
+    padding: 10px 80px;
+    font-size: 1.2rem;
+} */
 
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */
 
