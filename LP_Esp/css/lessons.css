@@ -101,3 +101,16 @@
 .main__lessons-cards-content-description{
     font-size: 0.9rem;
 }
+/* Añade esto a tu archivo lessons.css */
+.filtro-activo {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+#mensaje-sin-resultados {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 20px;
+    color: #666;
+}

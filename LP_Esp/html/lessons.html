@@ -9,11 +9,21 @@
     <link rel="stylesheet" href="/LP_Esp/css/lessons.css">
     <link rel="icon" href="/LP_Esp/media/imgs_Login/logo-pestaña.png" type="image/png">
     <title>Lecciones</title>
+    <style>
+        /* Estilo adicional para hacer las tarjetas clickeables */
+        .main__lessons-cards {
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .main__lessons-cards:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+    </style>
 </head>
 <body>
 
 <!-- -------------------- HEADER SECTION -------------------- -->
-
     <section class="sections-group header-section">
         <header class="header">
             <input type="checkbox" class="header__menu-checkbox" id="open-menu">
@@ -37,10 +47,8 @@
     </section>
 
 <!-- -------------------- MAIN SECTION -------------------- -->
-
     <section class="sections-group main-section">
         <main class="main">
-
             <div class="main__header-container">
                 <div class="main__content-container">
                     <h2 class="main__content-title">Lecciones de Español</h2>
@@ -52,20 +60,19 @@
                     <button type="button" class="main__filters">
                         <i class="fas fa-filter"></i>
                     </button>
-                    <button type="button" class="main__filters">Gramática</button>
-                    <button type="button" class="main__filters">Vocabulario</button>
-                    <button type="button" class="main__filters">Pronunciación</button>
-                    <button type="button" class="main__filters">Ortografía</button>
+                    <button type="button" class="main__filters" onclick="filtrarPorCategoria('Gramática')">Gramática</button>
+                    <button type="button" class="main__filters" onclick="filtrarPorCategoria('Vocabulario')">Vocabulario</button>
+                    <button type="button" class="main__filters" onclick="filtrarPorCategoria('Ortografía')">Ortografía</button>
                 </div>
             </div>
 
 <!-- -------------------- MAIN-CARDS SECTION -------------------- -->
-
             <div class="main__lessons-cards-container" id="contenedor-lecciones">
                 
-                <div class="main__lessons-cards">
+                <!-- Lecciones de Gramática (8) -->
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="" alt="Imagen Representativa" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica1.jpg" alt="Presente simple" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
@@ -74,14 +81,127 @@
                         </div>
                         <div class="main__lessons-cards-content-down">
                             <h2 class="main__lessons-cards-content-title">El presente simple</h2>
-                            <p class="main__lessons-cards-content-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, vero.</p>
+                            <p class="main__lessons-cards-content-description">Aprende a conjugar verbos regulares e irregulares en presente.</p>
                         </div>
                     </div>
                 </div>
                 
-                <div class="main__lessons-cards">
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="" alt="Imagen Representativa" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica2.jpg" alt="Pasado simple" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">35 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">El pasado simple</h2>
+                            <p class="main__lessons-cards-content-description">Domina los tiempos pasados para contar historias y experiencias.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica3.jpg" alt="Futuro" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">El futuro</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a expresar planes y predicciones en español.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica4.jpg" alt="Subjuntivo" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">40 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">El modo subjuntivo</h2>
+                            <p class="main__lessons-cards-content-description">Domina este modo verbal para expresar deseos y dudas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica5.jpg" alt="Pronombres" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Pronombres personales</h2>
+                            <p class="main__lessons-cards-content-description">Aprende los pronombres y su uso correcto en oraciones.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica6.jpg" alt="Artículos" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">15 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Artículos definidos e indefinidos</h2>
+                            <p class="main__lessons-cards-content-description">Domina el uso de 'el, la, los, las, un, una, unos, unas'.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica7.jpg" alt="Adjetivos" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Adjetivos y concordancia</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a hacer concordar adjetivos con sustantivos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/gramatica8.jpg" alt="Preposiciones" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-time">30 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Preposiciones comunes</h2>
+                            <p class="main__lessons-cards-content-description">Domina el uso de 'a, de, en, por, para, con, sin'.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lecciones de Vocabulario (8) -->
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario1.jpg" alt="Saludos" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
@@ -89,24 +209,249 @@
                             <p class="main__lessons-cards-content-time">15 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Saludos y Presentaciones</h2>
-                            <p class="main__lessons-cards-content-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, vero.</p>
+                            <h2 class="main__lessons-cards-content-title">Saludos y presentaciones</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a saludar y presentarte en diferentes contextos.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="main__lessons-cards">
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="" alt="Imagen Representativa" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario2.jpg" alt="Familia" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Pronunciación</p>
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
                             <p class="main__lessons-cards-content-time">20 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Las vocales en Español</h2>
-                            <p class="main__lessons-cards-content-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, vero.</p>
+                            <h2 class="main__lessons-cards-content-title">La familia y relaciones</h2>
+                            <p class="main__lessons-cards-content-description">Vocabulario esencial para hablar de familia y relaciones.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario3.jpg" alt="Comida" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Comida y restaurantes</h2>
+                            <p class="main__lessons-cards-content-description">Palabras y frases para ordenar comida y hablar de gastronomía.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario4.jpg" alt="Ciudad" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">La ciudad y direcciones</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a pedir y dar direcciones en español.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario5.jpg" alt="Trabajo" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-time">30 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Profesiones y trabajo</h2>
+                            <p class="main__lessons-cards-content-description">Vocabulario para hablar de profesiones y entorno laboral.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario6.jpg" alt="Tiempo" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-time">15 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">El tiempo y el clima</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a hablar sobre el clima y las estaciones.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario7.jpg" alt="Números" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Números y cantidades</h2>
+                            <p class="main__lessons-cards-content-description">Domina los números cardinales y ordinales en español.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/vocabulario8.jpg" alt="Viajes" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Viajes y transporte</h2>
+                            <p class="main__lessons-cards-content-description">Vocabulario esencial para viajar en países hispanohablantes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Lecciones de Ortografía (8) -->
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia1.jpg" alt="Acentuación" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">30 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Reglas de acentuación</h2>
+                            <p class="main__lessons-cards-content-description">Aprende las reglas para acentuar palabras correctamente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia2.jpg" alt="B-V" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Uso de B y V</h2>
+                            <p class="main__lessons-cards-content-description">Domina las reglas para diferenciar estas letras.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia3.jpg" alt="G-J" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Uso de G y J</h2>
+                            <p class="main__lessons-cards-content-description">Reglas para usar correctamente estas letras.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia4.jpg" alt="H" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">15 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Uso de la H</h2>
+                            <p class="main__lessons-cards-content-description">Aprende cuándo usar esta letra muda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia5.jpg" alt="Puntuación" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">30 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Signos de puntuación</h2>
+                            <p class="main__lessons-cards-content-description">Uso correcto de comas, puntos, signos de interrogación, etc.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia6.jpg" alt="Mayúsculas" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Uso de mayúsculas</h2>
+                            <p class="main__lessons-cards-content-description">Reglas para el uso correcto de letras mayúsculas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia7.jpg" alt="Homófonos" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Palabras homófonas</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a diferenciar palabras que suenan igual pero se escriben diferente.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main__lessons-cards" onclick="window.location.href='Lesson-prueba.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ortografia8.jpg" alt="Extranjerismos" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Extranjerismos y adaptaciones</h2>
+                            <p class="main__lessons-cards-content-description">Cómo escribir correctamente palabras de otros idiomas.</p>
                         </div>
                     </div>
                 </div>
@@ -115,48 +460,8 @@
 
         </main>
     </section>
-
-<!-- -------------------- FOOTER SECTION -------------------- -->
-
-<section class="sections-group footer-section">
-    <footer class="footer">
-        <div class="footer__box-container">
-
-            <div class="footer__box footer__box-logo&media-container">
-                <a href="/LP_Esp/html/index.html"><img src="/LP_Esp/media/imgs_Login/logo.png" alt="Logo" class="footer__box-logo"></a>
-
-                <div class="footer__media-container">
-                    <a href="#" class="footer__media-link">Facebook</a>
-                    <span class="footer__divisor-line-media">-</span>
-                    <a href="#" class="footer__media-link">Instagram</a>
-                    <span class="footer__divisor-line-media">-</span>
-                    <a href="#" class="footer__media-link">YouTube</a>
-                </div>
-                
-            </div>
-            
-            <div class="footer__divisor-line"></div>
-            <hr class="footer__hr">
-
-            <div class="footer__box footer__box-links">
-                <ul class="footer__ul">
-                    <li class="footer__li"><a href="/LP_Esp/html/index.html" class="footer__link">Inicio</a></li>
-                    <li class="footer__li"><a href="/LP_Esp/html/lessons.html" class="footer__link">Lecciones</a></li>
-                    <li class="footer__li"><a href="/LP_Esp/html/challenge.html" class="footer__link">Desafíos</a></li>
-                    <li class="footer__li"><a href="#" class="footer__link">Perfil</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__divisor-line"></div>
-            <hr class="footer__hr">
-
-            <div class="footer__box footer__box-locate">
-                <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.877216474902!2d-70.69044072529607!3d19.41771038185848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb1cf196f54ddfb%3A0x740cafb0dbd0ef9f!2sInstituto%20Polit%C3%A9cnico%20Industrial%20Don%20Bosco!5e0!3m2!1ses-419!2sdo!4v1742771532810!5m2!1ses-419!2sdo" width="380" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="footer__box-map"></iframe>
-            </div>
-        </div>
-    </footer>
-</section>
 </body>
 <script src="https://kit.fontawesome.com/8be0b9b871.js" crossorigin="anonymous"></script>
 <script src="/LP_Esp/js/funcion-buscar.js"></script>
+<script src="../js/loadFooter.js"></script>
 </html>
