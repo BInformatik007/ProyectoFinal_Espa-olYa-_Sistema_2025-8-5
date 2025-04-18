@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección: Presente Simple</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .leccion-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #3498db;
+        }
+        .pagina {
+            display: none;
+        }
+        .pagina-activa {
+            display: block;
+        }
+        .pregunta {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        .pregunta:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .opciones {
+            margin-top: 15px;
+        }
+        .opcion {
+            margin: 10px 0;
+            padding: 12px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.3s;
+            border: 1px solid #ddd;
+        }
+        .opcion:hover {
+            background-color: #e9ecef;
+            transform: translateX(5px);
+        }
+        .correcta {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        .incorrecta {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+        }
+        .feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        .feedback-correcto {
+            background-color: #d4edda;
+            color: #155724;
+            border-left: 4px solid #28a745;
+        }
+        .feedback-incorrecto {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-left: 4px solid #dc3545;
+        }
+        .sugerencia {
+            background-color: #fff3cd;
+            color: #856404;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 15px;
+            display: none;
+            border-left: 4px solid #ffc107;
+            animation: fadeIn 0.5s;
+        }
+        .progreso {
+            height: 10px;
+            background-color: #e9ecef;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .barra-progreso {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 5px;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .btn {
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        }
+        .btn:disabled {
+            background-color: #95a5a6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        .btn-secundario {
+            background-color: #95a5a6;
+        }
+        .btn-secundario:hover {
+            background-color: #7f8c8d;
+        }
+        .text-input {
+            padding: 12px;
+            width: 100%;
+            margin-top: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .arrastrar {
+            border: 1px dashed #6c757d;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 5px;
+            cursor: move;
+            background-color: white;
+            transition: all 0.3s;
+        }
+        .arrastrar:hover {
+            background-color: #f8f9fa;
+        }
+        .zona-arrastre {
+            min-height: 60px;
+            border: 2px dashed #6c757d;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+        }
+        .controles-paginacion {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .puntos-paginacion {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .punto {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #bdc3c7;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .punto-activo {
+            background-color: #3498db;
+            transform: scale(1.2);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s;
+        }
+        .modal-contenido {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+            transform: translateY(20px);
+            animation: slideUp 0.4s forwards;
+        }
+        .cerrar-modal {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            to { transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="leccion-container">
+        <h1>El Presente Simple en Español</h1>
+        <p>Completa las siguientes 24 preguntas para dominar el presente simple. Las preguntas están divididas en 4 páginas.</p>
+        
+        <div class="progreso">
+            <div class="barra-progreso" id="barra-progreso"></div>
+        </div>
+        
+        <div class="puntos-paginacion">
+            <span class="punto punto-activo" onclick="cambiarPagina(0)"></span>
+            <span class="punto" onclick="cambiarPagina(1)"></span>
+            <span class="punto" onclick="cambiarPagina(2)"></span>
+            <span class="punto" onclick="cambiarPagina(3)"></span>
+        </div>
+        
+        <!-- Página 1 -->
+        <div class="pagina pagina-activa" id="pagina1">
+            <!-- Pregunta 1 -->
+            <div class="pregunta" id="pregunta1">
+                <h3>1. ¿Cómo se conjuga el verbo "hablar" en presente para "yo"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(1, 'a')">a) Hablo</div>
+                    <div class="opcion" onclick="verificarRespuesta(1, 'b')">b) Habla</div>
+                    <div class="opcion" onclick="verificarRespuesta(1, 'c')">c) Hablan</div>
+                    <div class="opcion" onclick="verificarRespuesta(1, 'd')">d) Hablas</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback1-correcto">
+                    ¡Correcto! "Yo hablo" es la conjugación correcta para la primera persona singular.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback1-incorrecto">
+                    Incorrecto. Recuerda que los verbos -ar en presente para "yo" terminan en -o. La respuesta correcta es "hablo".
+                </div>
+                <div class="sugerencia" id="sugerencia1">
+                    <strong>Sugerencia:</strong> Los verbos que terminan en -ar (como hablar) se conjugan: yo -o, tú -as, él/ella -a, nosotros -amos, vosotros -áis, ellos -an.
+                </div>
+            </div>
+            
+            <!-- Pregunta 2 -->
+            <div class="pregunta" id="pregunta2">
+                <h3>2. Completa la conjugación: "Tú _____ (comer) una manzana."</h3>
+                <input type="text" class="text-input" id="respuesta2" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(2, 'comes')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback2-correcto">
+                    ¡Perfecto! "Tú comes" es la forma correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback2-incorrecto">
+                    Casi. Para "tú" con verbos -er como "comer", usamos -es. La respuesta correcta es "comes".
+                </div>
+                <div class="sugerencia" id="sugerencia2">
+                    <strong>Sugerencia:</strong> Los verbos -er se conjugan: yo -o, tú -es, él/ella -e, nosotros -emos, vosotros -éis, ellos -en.
+                </div>
+            </div>
+            
+            <!-- Pregunta 3 -->
+            <div class="pregunta" id="pregunta3">
+                <h3>3. Arrastra el verbo correcto para "Nosotros _____ (vivir) en Madrid."</h3>
+                <div class="arrastrar" draggable="true" id="opcion1" ondragstart="drag(event)">vivimos</div>
+                <div class="arrastrar" draggable="true" id="opcion2" ondragstart="drag(event)">vive</div>
+                <div class="arrastrar" draggable="true" id="opcion3" ondragstart="drag(event)">viven</div>
+                <div class="zona-arrastre" ondragover="allowDrop(event)" ondrop="drop(event, 'vivimos')"></div>
+                <div class="feedback feedback-correcto" id="feedback3-correcto">
+                    ¡Excelente! "Nosotros vivimos" es la conjugación correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback3-incorrecto">
+                    Oops. Para "nosotros" con verbos -ir como "vivir", usamos -imos. La respuesta es "vivimos".
+                </div>
+                <div class="sugerencia" id="sugerencia3">
+                    <strong>Sugerencia:</strong> Los verbos -ir se conjugan: yo -o, tú -es, él/ella -e, nosotros -imos, vosotros -ís, ellos -en.
+                </div>
+            </div>
+            
+            <!-- Pregunta 4 -->
+            <div class="pregunta" id="pregunta4">
+                <h3>4. ¿Cuál es la forma correcta para "él" del verbo "tener"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(4, 'a')">a) Teno</div>
+                    <div class="opcion" onclick="verificarRespuesta(4, 'b')">b) Tiene</div>
+                    <div class="opcion" onclick="verificarRespuesta(4, 'c')">c) Tenes</div>
+                    <div class="opcion" onclick="verificarRespuesta(4, 'd')">d) Tien</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback4-correcto">
+                    ¡Correcto! "Él tiene" es la forma irregular correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback4-incorrecto">
+                    Incorrecto. "Tener" es un verbo irregular. La forma correcta para "él" es "tiene".
+                </div>
+                <div class="sugerencia" id="sugerencia4">
+                    <strong>Sugerencia:</strong> "Tener" es irregular: yo tengo, tú tienes, él/ella tiene, nosotros tenemos, vosotros tenéis, ellos tienen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 5 -->
+            <div class="pregunta" id="pregunta5">
+                <h3>5. Completa: "Vosotros _____ (beber) mucha agua."</h3>
+                <input type="text" class="text-input" id="respuesta5" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(5, 'bebéis')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback5-correcto">
+                    ¡Muy bien! "Vosotros bebéis" es correcto.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback5-incorrecto">
+                    Casi. Para "vosotros" con verbos -er, la terminación es -éis. La respuesta es "bebéis".
+                </div>
+                <div class="sugerencia" id="sugerencia5">
+                    <strong>Sugerencia:</strong> La forma "vosotros" es más común en España. En Latinoamérica se suele usar "ustedes" con la forma de ellos.
+                </div>
+            </div>
+            
+            <!-- Pregunta 6 -->
+            <div class="pregunta" id="pregunta6">
+                <h3>6. Selecciona la oración correcta:</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(6, 'a')">a) Yo estudio español todos los días.</div>
+                    <div class="opcion" onclick="verificarRespuesta(6, 'b')">b) Yo estudias español todos los días.</div>
+                    <div class="opcion" onclick="verificarRespuesta(6, 'c')">c) Yo estudian español todos los días.</div>
+                    <div class="opcion" onclick="verificarRespuesta(6, 'd')">d) Yo estudiamos español todos los días.</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback6-correcto">
+                    ¡Perfecto! "Yo estudio" es la conjugación correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback6-incorrecto">
+                    Incorrecto. Para "yo" con verbos -ar como "estudiar", usamos -o. La respuesta correcta es "estudio".
+                </div>
+                <div class="sugerencia" id="sugerencia6">
+                    <strong>Sugerencia:</strong> Fíjate siempre en el sujeto de la oración para elegir la conjugación correcta.
+                </div>
+            </div>
+            
+            <div class="controles-paginacion">
+                <button class="btn btn-secundario" disabled>Anterior</button>
+                <button class="btn" onclick="cambiarPagina(1)">Siguiente</button>
+            </div>
+        </div>
+        
+        <!-- Página 2 -->
+        <div class="pagina" id="pagina2">
+            <!-- Pregunta 7 -->
+            <div class="pregunta" id="pregunta7">
+                <h3>7. ¿Cómo se conjuga "ser" para "ella"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(7, 'a')">a) Soy</div>
+                    <div class="opcion" onclick="verificarRespuesta(7, 'b')">b) Eres</div>
+                    <div class="opcion" onclick="verificarRespuesta(7, 'c')">c) Es</div>
+                    <div class="opcion" onclick="verificarRespuesta(7, 'd')">d) Somos</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback7-correcto">
+                    ¡Correcto! "Ella es" es la forma correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback7-incorrecto">
+                    Incorrecto. "Ser" es irregular. Para "ella" es "es".
+                </div>
+                <div class="sugerencia" id="sugerencia7">
+                    <strong>Sugerencia:</strong> "Ser" se conjuga: yo soy, tú eres, él/ella es, nosotros somos, vosotros sois, ellos son.
+                </div>
+            </div>
+            
+            <!-- Pregunta 8 -->
+            <div class="pregunta" id="pregunta8">
+                <h3>8. Completa: "Ellos _____ (jugar) al fútbol los sábados."</h3>
+                <input type="text" class="text-input" id="respuesta8" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(8, 'juegan')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback8-correcto">
+                    ¡Excelente! "Jugar" tiene cambio vocálico: u → ue.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback8-incorrecto">
+                    Cuidado. "Jugar" es un verbo con cambio vocálico (u → ue). La respuesta es "juegan".
+                </div>
+                <div class="sugerencia" id="sugerencia8">
+                    <strong>Sugerencia:</strong> Algunos verbos como "jugar" (u→ue), "querer" (e→ie), "pedir" (e→i) tienen cambios vocálicos.
+                </div>
+            </div>
+            
+            <!-- Pregunta 9 -->
+            <div class="pregunta" id="pregunta9">
+                <h3>9. ¿Cuál es la forma correcta de "yo" para el verbo "hacer"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(9, 'a')">a) Haco</div>
+                    <div class="opcion" onclick="verificarRespuesta(9, 'b')">b) Hace</div>
+                    <div class="opcion" onclick="verificarRespuesta(9, 'c')">c) Hago</div>
+                    <div class="opcion" onclick="verificarRespuesta(9, 'd')">d) Hazo</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback9-correcto">
+                    ¡Correcto! "Yo hago" es la forma irregular correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback9-incorrecto">
+                    Incorrecto. "Hacer" es irregular en la primera persona. La forma correcta es "hago".
+                </div>
+                <div class="sugerencia" id="sugerencia9">
+                    <strong>Sugerencia:</strong> "Hacer" se conjuga: yo hago, tú haces, él/ella hace, nosotros hacemos, vosotros hacéis, ellos hacen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 10 -->
+            <div class="pregunta" id="pregunta10">
+                <h3>10. Completa: "Usted _____ (trabajar) en una oficina."</h3>
+                <input type="text" class="text-input" id="respuesta10" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(10, 'trabaja')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback10-correcto">
+                    ¡Perfecto! "Usted" sigue la conjugación de tercera persona singular.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback10-incorrecto">
+                    Recuerda que "usted" sigue la conjugación de "él/ella". La respuesta correcta es "trabaja".
+                </div>
+                <div class="sugerencia" id="sugerencia10">
+                    <strong>Sugerencia:</strong> "Usted" y "ustedes" son formas de cortesía que siguen las conjugaciones de tercera persona.
+                </div>
+            </div>
+            
+            <!-- Pregunta 11 -->
+            <div class="pregunta" id="pregunta11">
+                <h3>11. Arrastra el verbo correcto para "Ella _____ (dormir) ocho horas cada noche."</h3>
+                <div class="arrastrar" draggable="true" id="opcion11a" ondragstart="drag(event)">duerme</div>
+                <div class="arrastrar" draggable="true" id="opcion11b" ondragstart="drag(event)">dorme</div>
+                <div class="arrastrar" draggable="true" id="opcion11c" ondragstart="drag(event)">dormo</div>
+                <div class="zona-arrastre" ondragover="allowDrop(event)" ondrop="drop(event, 'duerme')"></div>
+                <div class="feedback feedback-correcto" id="feedback11-correcto">
+                    ¡Excelente! "Dormir" tiene cambio vocálico: o → ue.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback11-incorrecto">
+                    Cuidado. "Dormir" es un verbo con cambio vocálico (o → ue). La respuesta es "duerme".
+                </div>
+                <div class="sugerencia" id="sugerencia11">
+                    <strong>Sugerencia:</strong> Verbos como "dormir" (o→ue), "poder" (o→ue), "volver" (o→ue) tienen cambios vocálicos en algunas conjugaciones.
+                </div>
+            </div>
+            
+            <!-- Pregunta 12 -->
+            <div class="pregunta" id="pregunta12">
+                <h3>12. ¿Cuál es la forma correcta para "nosotros" del verbo "querer"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(12, 'a')">a) Queremos</div>
+                    <div class="opcion" onclick="verificarRespuesta(12, 'b')">b) Querimos</div>
+                    <div class="opcion" onclick="verificarRespuesta(12, 'c')">c) Querimos</div>
+                    <div class="opcion" onclick="verificarRespuesta(12, 'd')">d) Queremos</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback12-correcto">
+                    ¡Correcto! "Nosotros queremos" es la forma correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback12-incorrecto">
+                    Incorrecto. "Querer" es irregular pero en "nosotros" no tiene cambio vocálico. La respuesta es "queremos".
+                </div>
+                <div class="sugerencia" id="sugerencia12">
+                    <strong>Sugerencia:</strong> "Querer" se conjuga: yo quiero, tú quieres, él/ella quiere, nosotros queremos, vosotros queréis, ellos quieren.
+                </div>
+            </div>
+            
+            <div class="controles-paginacion">
+                <button class="btn btn-secundario" onclick="cambiarPagina(0)">Anterior</button>
+                <button class="btn" onclick="cambiarPagina(2)">Siguiente</button>
+            </div>
+        </div>
+        
+        <!-- Página 3 -->
+        <div class="pagina" id="pagina3">
+            <!-- Pregunta 13 -->
+            <div class="pregunta" id="pregunta13">
+                <h3>13. Completa: "Yo _____ (salir) de casa a las ocho."</h3>
+                <input type="text" class="text-input" id="respuesta13" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(13, 'salgo')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback13-correcto">
+                    ¡Correcto! "Salir" es irregular en primera persona: "salgo".
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback13-incorrecto">
+                    Casi. "Salir" es irregular en primera persona. La respuesta correcta es "salgo".
+                </div>
+                <div class="sugerencia" id="sugerencia13">
+                    <strong>Sugerencia:</strong> Algunos verbos como "salir", "poner", "traer" son irregulares en primera persona: salgo, pongo, traigo.
+                </div>
+            </div>
+            
+            <!-- Pregunta 14 -->
+            <div class="pregunta" id="pregunta14">
+                <h3>14. ¿Cuál es la forma correcta para "tú" del verbo "venir"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(14, 'a')">a) Veno</div>
+                    <div class="opcion" onclick="verificarRespuesta(14, 'b')">b) Vienes</div>
+                    <div class="opcion" onclick="verificarRespuesta(14, 'c')">c) Vieno</div>
+                    <div class="opcion" onclick="verificarRespuesta(14, 'd')">d) Venes</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback14-correcto">
+                    ¡Perfecto! "Tú vienes" es la forma correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback14-incorrecto">
+                    Incorrecto. "Venir" es irregular con cambio vocálico (e→ie). La respuesta correcta es "vienes".
+                </div>
+                <div class="sugerencia" id="sugerencia14">
+                    <strong>Sugerencia:</strong> "Venir" se conjuga: yo vengo, tú vienes, él/ella viene, nosotros venimos, vosotros venís, ellos vienen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 15 -->
+            <div class="pregunta" id="pregunta15">
+                <h3>15. Arrastra el verbo correcto para "Vosotras _____ (decir) la verdad."</h3>
+                <div class="arrastrar" draggable="true" id="opcion15a" ondragstart="drag(event)">decís</div>
+                <div class="arrastrar" draggable="true" id="opcion15b" ondragstart="drag(event)">dices</div>
+                <div class="arrastrar" draggable="true" id="opcion15c" ondragstart="drag(event)">dicís</div>
+                <div class="zona-arrastre" ondragover="allowDrop(event)" ondrop="drop(event, 'decís')"></div>
+                <div class="feedback feedback-correcto" id="feedback15-correcto">
+                    ¡Excelente! "Decir" es irregular: vosotras decís.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback15-incorrecto">
+                    Cuidado. "Decir" es irregular pero sigue la regla general para vosotros: raíz + ís. La respuesta es "decís".
+                </div>
+                <div class="sugerencia" id="sugerencia15">
+                    <strong>Sugerencia:</strong> "Decir" se conjuga: yo digo, tú dices, él/ella dice, nosotros decimos, vosotros decís, ellos dicen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 16 -->
+            <div class="pregunta" id="pregunta16">
+                <h3>16. Completa: "Ellos _____ (conocer) Madrid muy bien."</h3>
+                <input type="text" class="text-input" id="respuesta16" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(16, 'conocen')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback16-correcto">
+                    ¡Correcto! "Conocer" es regular en presente excepto en primera persona.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback16-incorrecto">
+                    Casi. "Conocer" es regular en esta forma. La respuesta correcta es "conocen".
+                </div>
+                <div class="sugerencia" id="sugerencia16">
+                    <strong>Sugerencia:</strong> "Conocer" se conjuga: yo conozco, tú conoces, él/ella conoce, nosotros conocemos, vosotros conocéis, ellos conocen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 17 -->
+            <div class="pregunta" id="pregunta17">
+                <h3>17. ¿Cuál es la forma correcta para "yo" del verbo "ver"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(17, 'a')">a) Vo</div>
+                    <div class="opcion" onclick="verificarRespuesta(17, 'b')">b) Veo</div>
+                    <div class="opcion" onclick="verificarRespuesta(17, 'c')">c) Vio</div>
+                    <div class="opcion" onclick="verificarRespuesta(17, 'd')">d) Ve</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback17-correcto">
+                    ¡Perfecto! "Yo veo" es la forma correcta.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback17-incorrecto">
+                    Incorrecto. "Ver" es irregular en primera persona. La respuesta correcta es "veo".
+                </div>
+                <div class="sugerencia" id="sugerencia17">
+                    <strong>Sugerencia:</strong> "Ver" se conjuga: yo veo, tú ves, él/ella ve, nosotros vemos, vosotros veis, ellos ven.
+                </div>
+            </div>
+            
+            <!-- Pregunta 18 -->
+            <div class="pregunta" id="pregunta18">
+                <h3>18. Completa: "Tú _____ (pedir) ayuda cuando la necesitas."</h3>
+                <input type="text" class="text-input" id="respuesta18" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(18, 'pides')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback18-correcto">
+                    ¡Correcto! "Pedir" tiene cambio vocálico (e→i).
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback18-incorrecto">
+                    Casi. "Pedir" tiene cambio vocálico (e→i). La respuesta correcta es "pides".
+                </div>
+                <div class="sugerencia" id="sugerencia18">
+                    <strong>Sugerencia:</strong> Verbos como "pedir" (e→i), "servir" (e→i), "repetir" (e→i) tienen cambios vocálicos.
+                </div>
+            </div>
+            
+            <div class="controles-paginacion">
+                <button class="btn btn-secundario" onclick="cambiarPagina(1)">Anterior</button>
+                <button class="btn" onclick="cambiarPagina(3)">Siguiente</button>
+            </div>
+        </div>
+        
+        <!-- Página 4 -->
+        <div class="pagina" id="pagina4">
+            <!-- Pregunta 19 -->
+            <div class="pregunta" id="pregunta19">
+                <h3>19. Completa: "Nosotros _____ (poder) ayudar con el proyecto."</h3>
+                <input type="text" class="text-input" id="respuesta19" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(19, 'podemos')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback19-correcto">
+                    ¡Correcto! "Poder" es irregular pero en "nosotros" no tiene cambio vocálico.
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback19-incorrecto">
+                    Casi. "Poder" es irregular pero en "nosotros" es regular. La respuesta correcta es "podemos".
+                </div>
+                <div class="sugerencia" id="sugerencia19">
+                    <strong>Sugerencia:</strong> "Poder" se conjuga: yo puedo, tú puedes, él/ella puede, nosotros podemos, vosotros podéis, ellos pueden.
+                </div>
+            </div>
+            
+            <!-- Pregunta 20 -->
+            <div class="pregunta" id="pregunta20">
+                <h3>20. ¿Cuál es la forma correcta para "ella" del verbo "seguir"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(20, 'a')">a) Sigue</div>
+                    <div class="opcion" onclick="verificarRespuesta(20, 'b')">b) Sego</div>
+                    <div class="opcion" onclick="verificarRespuesta(20, 'c')">c) Segue</div>
+                    <div class="opcion" onclick="verificarRespuesta(20, 'd')">d) Sige</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback20-correcto">
+                    ¡Perfecto! "Seguir" tiene cambio vocálico (e→i): "sigue".
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback20-incorrecto">
+                    Incorrecto. "Seguir" tiene cambio vocálico (e→i). La respuesta correcta es "sigue".
+                </div>
+                <div class="sugerencia" id="sugerencia20">
+                    <strong>Sugerencia:</strong> "Seguir" se conjuga: yo sigo, tú sigues, él/ella sigue, nosotros seguimos, vosotros seguís, ellos siguen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 21 -->
+            <div class="pregunta" id="pregunta21">
+                <h3>21. Arrastra el verbo correcto para "Yo _____ (traer) el libro mañana."</h3>
+                <div class="arrastrar" draggable="true" id="opcion21a" ondragstart="drag(event)">traigo</div>
+                <div class="arrastrar" draggable="true" id="opcion21b" ondragstart="drag(event)">trago</div>
+                <div class="arrastrar" draggable="true" id="opcion21c" ondragstart="drag(event)">trao</div>
+                <div class="zona-arrastre" ondragover="allowDrop(event)" ondrop="drop(event, 'traigo')"></div>
+                <div class="feedback feedback-correcto" id="feedback21-correcto">
+                    ¡Excelente! "Traer" es irregular en primera persona: "traigo".
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback21-incorrecto">
+                    Cuidado. "Traer" es irregular en primera persona. La respuesta es "traigo".
+                </div>
+                <div class="sugerencia" id="sugerencia21">
+                    <strong>Sugerencia:</strong> "Traer" se conjuga: yo traigo, tú traes, él/ella trae, nosotros traemos, vosotros traéis, ellos traen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 22 -->
+            <div class="pregunta" id="pregunta22">
+                <h3>22. Completa: "Ustedes _____ (entender) la lección."</h3>
+                <input type="text" class="text-input" id="respuesta22" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(22, 'entienden')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback22-correcto">
+                    ¡Correcto! "Entender" tiene cambio vocálico (e→ie).
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback22-incorrecto">
+                    Casi. "Entender" tiene cambio vocálico (e→ie). La respuesta correcta es "entienden".
+                </div>
+                <div class="sugerencia" id="sugerencia22">
+                    <strong>Sugerencia:</strong> "Entender" se conjuga: yo entiendo, tú entiendes, él/ella entiende, nosotros entendemos, vosotros entendéis, ellos entienden.
+                </div>
+            </div>
+            
+            <!-- Pregunta 23 -->
+            <div class="pregunta" id="pregunta23">
+                <h3>23. ¿Cuál es la forma correcta para "tú" del verbo "oir"?</h3>
+                <div class="opciones">
+                    <div class="opcion" onclick="verificarRespuesta(23, 'a')">a) Oyes</div>
+                    <div class="opcion" onclick="verificarRespuesta(23, 'b')">b) Oes</div>
+                    <div class="opcion" onclick="verificarRespuesta(23, 'c')">c) Oís</div>
+                    <div class="opcion" onclick="verificarRespuesta(23, 'd')">d) Oyes</div>
+                </div>
+                <div class="feedback feedback-correcto" id="feedback23-correcto">
+                    ¡Perfecto! "Oír" es irregular: "tú oyes".
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback23-incorrecto">
+                    Incorrecto. "Oír" es irregular. La respuesta correcta es "oyes".
+                </div>
+                <div class="sugerencia" id="sugerencia23">
+                    <strong>Sugerencia:</strong> "Oír" se conjuga: yo oigo, tú oyes, él/ella oye, nosotros oímos, vosotros oís, ellos oyen.
+                </div>
+            </div>
+            
+            <!-- Pregunta 24 -->
+            <div class="pregunta" id="pregunta24">
+                <h3>24. Completa: "Él _____ (preferir) el té al café."</h3>
+                <input type="text" class="text-input" id="respuesta24" placeholder="Escribe la respuesta...">
+                <button class="btn" onclick="verificarTexto(24, 'prefiere')">Verificar</button>
+                <div class="feedback feedback-correcto" id="feedback24-correcto">
+                    ¡Correcto! "Preferir" tiene cambio vocálico (e→ie).
+                </div>
+                <div class="feedback feedback-incorrecto" id="feedback24-incorrecto">
+                    Casi. "Preferir" tiene cambio vocálico (e→ie). La respuesta correcta es "prefiere".
+                </div>
+                <div class="sugerencia" id="sugerencia24">
+                    <strong>Sugerencia:</strong> "Preferir" se conjuga: yo prefiero, tú prefieres, él/ella prefiere, nosotros preferimos, vosotros preferís, ellos prefieren.
+                </div>
+            </div>
+            
+            <div class="controles-paginacion">
+                <button class="btn btn-secundario" onclick="cambiarPagina(2)">Anterior</button>
+                <button class="btn" onclick="mostrarResultadosFinales()">Ver resultados finales</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal de resultados -->
+    <div class="modal" id="modal-resultados">
+        <div class="modal-contenido">
+            <h2 id="titulo-resultado">Resultados</h2>
+            <div id="contenido-resultado"></div>
+            <button class="cerrar-modal" onclick="cerrarModal()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        // Variables globales
+        let respuestasCorrectas = 0;
+        const totalPreguntas = 24;
+        let paginaActual = 0;
+        const totalPaginas = 4;
+        
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function() {
+            actualizarProgreso();
+            actualizarPuntosPaginacion();
+        });
+        
+        // Funciones de paginación
+        function cambiarPagina(nuevaPagina) {
+            // Ocultar página actual
+            document.querySelector(`#pagina${paginaActual + 1}`).classList.remove('pagina-activa');
+            
+            // Mostrar nueva página
+            paginaActual = nuevaPagina;
+            document.querySelector(`#pagina${paginaActual + 1}`).classList.add('pagina-activa');
+            
+            // Actualizar puntos de paginación
+            actualizarPuntosPaginacion();
+            
+            // Actualizar controles de paginación
+            actualizarControlesPaginacion();
+        }
+        
+        function actualizarPuntosPaginacion() {
+            const puntos = document.querySelectorAll('.punto');
+            puntos.forEach((punto, index) => {
+                if (index === paginaActual) {
+                    punto.classList.add('punto-activo');
+                } else {
+                    punto.classList.remove('punto-activo');
+                }
+            });
+        }
+        
+        function actualizarControlesPaginacion() {
+            // Deshabilitar/mostrar botones según la página
+            const paginas = document.querySelectorAll('.pagina');
+            paginas.forEach((pagina, index) => {
+                const controles = pagina.querySelector('.controles-paginacion');
+                const btnAnterior = controles.querySelector('.btn-secundario');
+                const btnSiguiente = controles.querySelector('.btn:not(.btn-secundario)');
+                
+                // Primera página
+                if (index === 0) {
+                    btnAnterior.disabled = true;
+                } else {
+                    btnAnterior.disabled = false;
+                }
+                
+                // Última página
+                if (index === totalPaginas - 1) {
+                    btnSiguiente.textContent = 'Ver resultados finales';
+                    btnSiguiente.onclick = mostrarResultadosFinales;
+                } else {
+                    btnSiguiente.textContent = 'Siguiente';
+                    btnSiguiente.onclick = function() { cambiarPagina(index + 1); };
+                }
+            });
+        }
+        
+        // Funciones de verificación de respuestas
+        function verificarRespuesta(numPregunta, opcionSeleccionada) {
+            const pregunta = document.getElementById(`pregunta${numPregunta}`);
+            const feedbackCorrecto = document.getElementById(`feedback${numPregunta}-correcto`);
+            const feedbackIncorrecto = document.getElementById(`feedback${numPregunta}-incorrecto`);
+            const sugerencia = document.getElementById(`sugerencia${numPregunta}`);
+            const opciones = pregunta.querySelectorAll('.opcion');
+            
+            // Determinar la respuesta correcta según la pregunta
+            let respuestaCorrecta = '';
+            switch(numPregunta) {
+                case 1: respuestaCorrecta = 'a'; break;
+                case 4: respuestaCorrecta = 'b'; break;
+                case 6: respuestaCorrecta = 'a'; break;
+                case 7: respuestaCorrecta = 'c'; break;
+                case 9: respuestaCorrecta = 'c'; break;
+                case 12: respuestaCorrecta = 'a'; break;
+                case 14: respuestaCorrecta = 'b'; break;
+                case 17: respuestaCorrecta = 'b'; break;
+                case 20: respuestaCorrecta = 'a'; break;
+                case 23: respuestaCorrecta = 'a'; break;
+            }
+            
+            // Verificar respuesta
+            if (opcionSeleccionada === respuestaCorrecta) {
+                // Respuesta correcta
+                opciones.forEach(op => {
+                    if (op.getAttribute('onclick').includes(`'${opcionSeleccionada}'`)) {
+                        op.classList.add('correcta');
+                    }
+                });
+                
+                feedbackCorrecto.style.display = 'block';
+                feedbackIncorrecto.style.display = 'none';
+                sugerencia.style.display = 'none';
+                
+                // Incrementar contador de respuestas correctas si no se había respondido antes
+                if (!pregunta.classList.contains('respondida')) {
+                    respuestasCorrectas++;
+                    pregunta.classList.add('respondida');
+                    actualizarProgreso();
+                }
+            } else {
+                // Respuesta incorrecta
+                opciones.forEach(op => {
+                    const opcionLetra = op.getAttribute('onclick').split("'")[1];
+                    if (opcionLetra === opcionSeleccionada) {
+                        op.classList.add('incorrecta');
+                    }
+                    if (opcionLetra === respuestaCorrecta) {
+                        op.classList.add('correcta');
+                    }
+                });
+                
+                feedbackCorrecto.style.display = 'none';
+                feedbackIncorrecto.style.display = 'block';
+                sugerencia.style.display = 'block';
+                
+                // Marcar como respondida pero no incrementar contador
+                pregunta.classList.add('respondida');
+            }
+        }
+        
+        function verificarTexto(numPregunta, respuestaCorrecta) {
+            const respuestaUsuario = document.getElementById(`respuesta${numPregunta}`).value.trim().toLowerCase();
+            const pregunta = document.getElementById(`pregunta${numPregunta}`);
+            const feedbackCorrecto = document.getElementById(`feedback${numPregunta}-correcto`);
+            const feedbackIncorrecto = document.getElementById(`feedback${numPregunta}-incorrecto`);
+            const sugerencia = document.getElementById(`sugerencia${numPregunta}`);
+            
+            if (respuestaUsuario === respuestaCorrecta) {
+                // Respuesta correcta
+                feedbackCorrecto.style.display = 'block';
+                feedbackIncorrecto.style.display = 'none';
+                sugerencia.style.display = 'none';
+                
+                // Incrementar contador si no se había respondido antes
+                if (!pregunta.classList.contains('respondida')) {
+                    respuestasCorrectas++;
+                    pregunta.classList.add('respondida');
+                    actualizarProgreso();
+                }
+            } else {
+                // Respuesta incorrecta
+                feedbackCorrecto.style.display = 'none';
+                feedbackIncorrecto.style.display = 'block';
+                sugerencia.style.display = 'block';
+                
+                // Marcar como respondida pero no incrementar contador
+                pregunta.classList.add('respondida');
+            }
+        }
+        
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+        
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+        
+        function drop(ev, respuestaCorrecta) {
+            ev.preventDefault();
+            const data = ev.dataTransfer.getData("text");
+            const elementoArrastrado = document.getElementById(data);
+            const textoArrastrado = elementoArrastrado.textContent;
+            const preguntaId = ev.target.closest('.pregunta').id;
+            const numPregunta = parseInt(preguntaId.replace('pregunta', ''));
+            const pregunta = document.getElementById(preguntaId);
+            const feedbackCorrecto = document.getElementById(`feedback${numPregunta}-correcto`);
+            const feedbackIncorrecto = document.getElementById(`feedback${numPregunta}-incorrecto`);
+            const sugerencia = document.getElementById(`sugerencia${numPregunta}`);
+            
+            // Limpiar zona de arrastre
+            ev.target.innerHTML = '';
+            
+            // Crear nuevo elemento en la zona de arrastre
+            const nuevoElemento = document.createElement('div');
+            nuevoElemento.textContent = textoArrastrado;
+            nuevoElemento.className = 'arrastrar';
+            ev.target.appendChild(nuevoElemento);
+            
+            // Verificar respuesta
+            if (textoArrastrado === respuestaCorrecta) {
+                // Respuesta correcta
+                nuevoElemento.classList.add('correcta');
+                feedbackCorrecto.style.display = 'block';
+                feedbackIncorrecto.style.display = 'none';
+                sugerencia.style.display = 'none';
+                
+                // Incrementar contador si no se había respondido antes
+                if (!pregunta.classList.contains('respondida')) {
+                    respuestasCorrectas++;
+                    pregunta.classList.add('respondida');
+                    actualizarProgreso();
+                }
+            } else {
+                // Respuesta incorrecta
+                nuevoElemento.classList.add('incorrecta');
+                feedbackCorrecto.style.display = 'none';
+                feedbackIncorrecto.style.display = 'block';
+                sugerencia.style.display = 'block';
+                
+                // Marcar como respondida pero no incrementar contador
+                pregunta.classList.add('respondida');
+            }
+        }
+        
+        // Función para mostrar resultados finales
+        function mostrarResultadosFinales() {
+            const porcentaje = Math.round((respuestasCorrectas / totalPreguntas) * 100);
+            const modal = document.getElementById('modal-resultados');
+            const tituloResultado = document.getElementById('titulo-resultado');
+            const contenidoResultado = document.getElementById('contenido-resultado');
+            
+            // Configurar el contenido según el porcentaje
+            contenidoResultado.innerHTML = `
+                <p>Has respondido correctamente ${respuestasCorrectas} de ${totalPreguntas} preguntas.</p>
+                <p><strong>Porcentaje de aciertos: ${porcentaje}%</strong></p>
+            `;
+            
+            if (porcentaje >= 90) {
+                tituloResultado.textContent = '¡Felicidades! 🎉';
+                contenidoResultado.innerHTML += `
+                    <p style="color: #27ae60; font-weight: bold;">¡Excelente trabajo! Dominas el presente simple.</p>
+                    <p>Sigue practicando para mantener tus conocimientos.</p>
+                `;
+            } else if (porcentaje >= 70) {
+                tituloResultado.textContent = '¡Buen trabajo! 👍';
+                contenidoResultado.innerHTML += `
+                    <p style="color: #f39c12; font-weight: bold;">Vas por buen camino, pero hay algunos conceptos por reforzar.</p>
+                    <p>Revisa las preguntas incorrectas y vuelve a intentarlo.</p>
+                `;
+            } else {
+                tituloResultado.textContent = 'No te desanimes 💪';
+                contenidoResultado.innerHTML += `
+                    <p style="color: #e74c3c; font-weight: bold;">Necesitas más práctica con el presente simple.</p>
+                    <p>Revisa las sugerencias y vuelve a intentarlo. ¡Tú puedes!</p>
+                `;
+            }
+            
+            contenidoResultado.innerHTML += `
+                <button class="btn" style="margin-top: 20px;" onclick="reiniciarLeccion()">Reintentar lección</button>
+            `;
+            
+            modal.style.display = 'flex';
+        }
+        
+        function cerrarModal() {
+            document.getElementById('modal-resultados').style.display = 'none';
+        }
+        
+        function reiniciarLeccion() {
+            respuestasCorrectas = 0;
+            paginaActual = 0;
+            actualizarProgreso();
+            cambiarPagina(0);
+            cerrarModal();
+            
+            // Limpiar todas las respuestas
+            for (let i = 1; i <= totalPreguntas; i++) {
+                // Limpiar feedbacks
+                if (document.getElementById(`feedback${i}-correcto`)) {
+                    document.getElementById(`feedback${i}-correcto`).style.display = 'none';
+                    document.getElementById(`feedback${i}-incorrecto`).style.display = 'none';
+                    document.getElementById(`sugerencia${i}`).style.display = 'none';
+                }
+                
+                // Limpiar inputs de texto
+                if (document.getElementById(`respuesta${i}`)) {
+                    document.getElementById(`respuesta${i}`).value = '';
+                }
+                
+                // Limpiar selección múltiple
+                const opciones = document.querySelectorAll(`#pregunta${i} .opcion`);
+                if (opciones) {
+                    opciones.forEach(op => {
+                        op.classList.remove('correcta', 'incorrecta');
+                    });
+                }
+                
+                // Limpiar zonas de arrastre
+                const zonasArrastre = document.querySelectorAll(`#pregunta${i} .zona-arrastre`);
+                if (zonasArrastre) {
+                    zonasArrastre.forEach(zona => {
+                        zona.innerHTML = '';
+                    });
+                }
+                
+                // Quitar clase de respondida
+                const pregunta = document.getElementById(`pregunta${i}`);
+                if (pregunta) {
+                    pregunta.classList.remove('respondida');
+                }
+            }
+        }
+        
+        function actualizarProgreso() {
+            const porcentaje = (respuestasCorrectas / totalPreguntas) * 100;
+            document.getElementById('barra-progreso').style.width = `${porcentaje}%`;
+        }
+    </script>
+</body>
+</html>
