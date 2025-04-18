@@ -1,3 +1,6 @@
+
+// Barra de progreso en los módulos de las tarjetas del index
+
 document.addEventListener("DOMContentLoaded", () => {
     const progressContainers = document.querySelectorAll('.main__module-cards-progress-container');
 

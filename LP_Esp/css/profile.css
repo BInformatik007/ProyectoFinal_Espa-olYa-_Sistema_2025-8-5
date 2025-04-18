@@ -121,7 +121,7 @@
 
 .profile__tabs-content{
     background-color: #fff;
-    padding: 20px;
+    padding: 20px 30px;
     border-radius: 15px;
 }
 
@@ -133,9 +133,71 @@
     display: block;
 }
 
+.profile__top-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.profile__tab-title{
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+.profile__level-test-btn{
+    font-size: .9rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 15px;
+    background-color: #10b981;
+    color: #fff;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.profile__level-test-btn:hover{
+    transform: scale(1.05);
+}
+
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */
 
+.profile__main-content{
+    padding: 0 10px;
+}
 
+.profile__main-span-level{
+    display: inline-block;
+    background-color: #10b981;
+    color: #fff;
+    font-weight: 600;
+    padding: 0 10px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.profile__main-progress-bar-container{
+    margin-top: 10px;
+    width: 100%;
+    background-color: #eee;
+    border-radius: 4px;
+    height: 8px;
+    margin-bottom: 20px;
+}
+
+.profile__main-progress-bar{
+    width: 100%;
+    height: 100%;
+    background-color: #10b981;
+    border-radius: 4px;
+}
+
+.profile__main-progress-text{
+    font-size: 14px;
+    margin-top: 10px;
+}
 
 /* -------------------- STATISTICS PROFILE SECTION -------------------- */
 

@@ -3,18 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/font.css">
-    <link rel="stylesheet" href="../css/header&footer.css">
-    <link rel="stylesheet" href="../css/profile.css">
-=======
     <link rel="stylesheet" href="/LP_Esp/css/global.css">
     <link rel="stylesheet" href="/LP_Esp/css/font.css">
     <link rel="stylesheet" href="/LP_Esp/css/header&footer.css">
     <link rel="stylesheet" href="/LP_Esp/css/profile.css">
     <link rel="icon" href="/LP_Esp/media/imgs_Login/logo-pestaña.png" type="image/png">
->>>>>>> 5b3da98dd85c39745b119b1a344ff4fe172b64aa
     <title>EspañolYa</title>
 </head>
 <body>
@@ -92,43 +85,44 @@
 
 <!-- -------------------- TABLE PROFILE SECTION -------------------- -->
 
-<div class="profile__tabs-container">
-    <div class="profile__tabs-nav">
-        <button class="profile__tab-button active" data-tab="progreso">Progreso</button>
-        <button class="profile__tab-button" data-tab="estadisticas">Estadísticas</button>
-        <button class="profile__tab-button" data-tab="insignias">Insignias</button>
-    </div>
-
-    <div class="profile__tabs-content">
-        <div class="profile__tab-content active" id="progreso">
-            <h3 class="profile__tab-title">Tu progreso</h3>
-            <p class="profile__tab-description">Aquí se mostrará el avance de tus lecciones y niveles.</p>
+    <div class="profile__tabs-container">
+        <div class="profile__tabs-nav">
+            <button class="profile__tab-button active" data-tab="progreso">Progreso</button>
+            <button class="profile__tab-button" data-tab="estadisticas">Estadísticas</button>
+            <button class="profile__tab-button" data-tab="insignias">Insignias</button>
         </div>
 
-        <div class="profile__tab-content" id="estadisticas">
-            <h3 class="profile__tab-title">Tus estadísticas</h3>
-            <p class="profile__tab-description">Aquí aparecerán los días activos, puntos ganados, y más.</p>
-        </div>
-
-        <div class="profile__tab-content" id="insignias">
-            <h3 class="profile__tab-title">Tus insignias</h3>
-            <p class="profile__tab-description">Aquí se listarán todas las insignias que has desbloqueado.</p>
-        </div>
-    </div>
-</div>
-
+        <div class="profile__tabs-content">
 
 <!-- -------------------- PROGRESS PROFILE SECTION -------------------- -->
 
-    
+            <div class="profile__tab-content active" id="progreso">
+                <div class="profile__top-content">
+                    <h3 class="profile__tab-title">Tu progreso</h3>
+                    <button type="button" class="profile__level-test-btn">Test de Nivel</button>
+                </div>
+                <div class="profile__main-content">
+                    <p class="profile__main-text"><span class="profile__main-span-level">A1</span>Principiante</p>
+                    <div class="profile__main-progress-bar-container">
+                        <div class="profile__main-progress-bar" style="width: 40%;"></div>
+                        <p class="profile__main-progress-text"></p>
+                    </div>
+                </div>
+            </div>
 
 <!-- -------------------- STATISTICS PROFILE SECTION -------------------- -->
 
-    
+            <div class="profile__tab-content" id="estadisticas">
+                <h3 class="profile__tab-title">Tus estadísticas</h3>
+            </div>
 
 <!-- -------------------- INSIGNIA PROFILE SECTION -------------------- -->
 
-    
+            <div class="profile__tab-content" id="insignias">
+                <h3 class="profile__tab-title">Tus insignias</h3>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -175,5 +169,5 @@
 
 </body>
 <script src="../js/app.js"></script>
-<script src="../js/tab-content.js"></script>
+<script src="../js/profile.js"></script>
 </html>
