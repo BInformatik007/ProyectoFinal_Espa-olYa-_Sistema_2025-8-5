@@ -1,5 +1,5 @@
 .sections-container{
-    margin: 150px 120px;
+    margin: 110px 120px;
     display: flex;
     justify-content: space-between;
 }
@@ -64,6 +64,7 @@
     padding: 10px;
     border: none;
     border-radius: 10px;
+    font-weight: 500;
     cursor: pointer;
     transform-origin: center;
     transition: transform 0.3s ease;
@@ -75,22 +76,62 @@
 
 .profile__edit-profile{
     background-color: #10b981;
+    color: #fff;
 }
 
 /* -------------------- NAV BAR PROFILE SECTION -------------------- */
 
-/* .nav-bar__ul{
-    display: flex;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #ccc;
+.profile__tabs-container{
+    margin: 0 40px;
+    width: 100%;
 }
 
-.nav-bar__link{
+.profile__tabs-nav{
+    display: flex;
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.profile__tab-button{
+    width: 100%;
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 5px 0;
+    cursor: pointer;
+    border: none;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.profile__tab-button:nth-child(2){
+    margin: 0 5px;
+}
+
+.profile__tab-button.active{
+    background-color: #10b981;
+    color: #fff;
+    font-weight: 600;
+}
+
+.profile__tab-button:hover{
+    transform: scale(0.97);
+}
+
+.profile__tabs-content{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.profile__tab-content{
+    display: none;
+}
+
+.profile__tab-content.active{
     display: block;
-    padding: 10px 80px;
-    font-size: 1.2rem;
-} */
+}
 
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */
 
