@@ -3,10 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/header&footer.css">
+    <link rel="stylesheet" href="../css/profile.css">
+=======
     <link rel="stylesheet" href="/LP_Esp/css/global.css">
     <link rel="stylesheet" href="/LP_Esp/css/font.css">
     <link rel="stylesheet" href="/LP_Esp/css/header&footer.css">
     <link rel="stylesheet" href="/LP_Esp/css/profile.css">
+    <link rel="icon" href="/LP_Esp/media/imgs_Login/logo-pestaña.png" type="image/png">
+>>>>>>> 5b3da98dd85c39745b119b1a344ff4fe172b64aa
     <title>EspañolYa</title>
 </head>
 <body>
@@ -18,80 +26,113 @@
         <input type="checkbox" class="header__menu-checkbox" id="open-menu">
         <label for="open-menu" class="header__menu-icon" role="button">☰</label>
         <div class="header__logo-container">
-            <a href="/LP_Esp/html/index.html"><img src="/LP_Esp/media/imgs_Login/icono.png" alt="Logo" class="header__logo"></a>
+            <a href="../html/index.html"><img src="../media/imgs_Login/icono.png" alt="Logo" class="header__logo"></a>
         </div>
         <nav class="header__nav">
             <ul class="header__ul">
-                <li class="header__li"><a href="/LP_Esp/html/index.html" class="header__link">Inicio</a></li>
-                <li class="header__li"><a href="/LP_Esp/html/lessons.html" class="header__link">Lecciones</a></li>
-                <li class="header__li"><a href="/LP_Esp/html/challenge.html" class="header__link">Desafíos</a></li>
-                <li class="header__li"><a href="/LP_Esp/html/profile.html" class="header__link">Perfil</a></li>
+                <li class="header__li"><a href="../html/index.html" class="header__link">Inicio</a></li>
+                <li class="header__li"><a href="../html/lessons.html" class="header__link">Lecciones</a></li>
+                <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li>
+                <li class="header__li"><a href="../html/profile.html" class="header__link">Perfil</a></li>
             </ul>
         </nav>
         <div class="header__account-btn">
-            <a href="/LP_Esp/html/login.html" class="header__account-link header__account-link-login">Iniciar sesión</a>
-            <a href="/LP_Esp/html/login.html" class="header__account-link header__account-link-singup">Registrarse</a>
+            <a href="../html/login.html" class="header__account-link header__account-link-login">Iniciar sesión</a>
+            <a href="../html/login.html" class="header__account-link header__account-link-singup">Registrarse</a>
         </div>
     </header>
 </section>
 
 <!-- -------------------- PROFILE SECTION -------------------- -->
 
-<section class="sections-group profile-section">
-    <div class="profile__container">
-        <div class="profile__content-container">
-            <div class="profile__top-content-container">
-                <div class="profile__profile-img-container">
-                    <img src="/LP_Esp/media/images/profile-img.jpeg" alt="Imagen de perfil" class="profile__profile-img">
-                </div>
-                <div class="profile__text-content-container">
-                    <h2 class="profile__user-name">Estudiante</h2>
-                    <p class="profile__user-level">Nivel X</p>
-                </div>
-                <div class="profile__data-counting-container">
+<div class="sections-container">
 
-                    <div class="profile__data-counting profile__data-counting-lessons-container">
-                        <p class="profile__data-counting profile__data-lessons">4</p>
-                        <h3 class="profile__title-data profile__title-data-lessons">Lecciones</h3>
+    <section class="sections-group profile-section">
+        <div class="profile__container">
+            <div class="profile__content-container">
+                <div class="profile__top-content-container">
+                    <div class="profile__profile-img-container">
+                        <img src="/LP_Esp/media/images/profile-img.jpeg" alt="Imagen de perfil" class="profile__profile-img">
                     </div>
-
-                    <div class="profile__data-counting profile__data-counting-days-container">
-                        <p class="profile__data-counting profile__data-lessons">3</p>
-                        <h3 class="profile__title-data profile__title-data-lessons">Días</h3>
+                    <div class="profile__text-content-container">
+                        <h2 class="profile__user-name">Estudiante</h2>
+                        <p class="profile__user-level">Nivel X</p>
                     </div>
+                    <div class="profile__data-counting-container">
 
-                    <div class="profile__data-counting profile__data-counting-points-container">
-                        <p class="profile__data-counting profile__data-lessons">1300</p>
-                        <h3 class="profile__title-data profile__title-data-lessons">Puntuación</h3>
+                        <div class="profile__data-counting profile__data-counting-lessons-container">
+                            <p class="profile__data-counting profile__data-lessons">4</p>
+                            <h3 class="profile__title-data profile__title-data-lessons">Lecciones</h3>
+                        </div>
+
+                        <div class="profile__data-counting profile__data-counting-days-container">
+                            <p class="profile__data-counting profile__data-lessons">3</p>
+                            <h3 class="profile__title-data profile__title-data-lessons">Días</h3>
+                        </div>
+
+                        <div class="profile__data-counting profile__data-counting-points-container">
+                            <p class="profile__data-counting profile__data-lessons">1300</p>
+                            <h3 class="profile__title-data profile__title-data-lessons">Puntuación</h3>
+                        </div>
+                        
                     </div>
-                    
                 </div>
-            </div>
-            <div class="profile__down-content-container">
-                <div class="profile__buttons-container">
-                    <button class="profile__btn profile__edit-profile" id="profile__edit-profile">Editar perfil</button>
-                    <button class="profile__btn profile__config-btn" id="profile__config-btn">Ajustes</button>
-                </div>
-                <!-- <div class="profile__emergent-layout-container">
+                <div class="profile__down-content-container">
+                    <div class="profile__buttons-container">
+                        <button class="profile__btn profile__edit-profile" id="profile__edit-profile">Editar perfil</button>
+                        <button class="profile__btn profile__config-btn" id="profile__config-btn">Ajustes</button>
+                    </div>
+                    <!-- <div class="profile__emergent-layout-container">
 
-                </div> -->
+                    </div> -->
+                </div>
             </div>
         </div>
+    </section>
+
+<!-- -------------------- TABLE PROFILE SECTION -------------------- -->
+
+<div class="profile__tabs-container">
+    <div class="profile__tabs-nav">
+        <button class="profile__tab-button active" data-tab="progreso">Progreso</button>
+        <button class="profile__tab-button" data-tab="estadisticas">Estadísticas</button>
+        <button class="profile__tab-button" data-tab="insignias">Insignias</button>
     </div>
-</section>
+
+    <div class="profile__tabs-content">
+        <div class="profile__tab-content active" id="progreso">
+            <h3 class="profile__tab-title">Tu progreso</h3>
+            <p class="profile__tab-description">Aquí se mostrará el avance de tus lecciones y niveles.</p>
+        </div>
+
+        <div class="profile__tab-content" id="estadisticas">
+            <h3 class="profile__tab-title">Tus estadísticas</h3>
+            <p class="profile__tab-description">Aquí aparecerán los días activos, puntos ganados, y más.</p>
+        </div>
+
+        <div class="profile__tab-content" id="insignias">
+            <h3 class="profile__tab-title">Tus insignias</h3>
+            <p class="profile__tab-description">Aquí se listarán todas las insignias que has desbloqueado.</p>
+        </div>
+    </div>
+</div>
+
 
 <!-- -------------------- PROGRESS PROFILE SECTION -------------------- -->
 
-
+    
 
 <!-- -------------------- STATISTICS PROFILE SECTION -------------------- -->
 
-
+    
 
 <!-- -------------------- INSIGNIA PROFILE SECTION -------------------- -->
 
+    
 
+</div>
 
+<<<<<<< HEAD
 
 </body>
 <script src="/LP_Esp/js/loadFooter.js"></script>
@@ -99,4 +140,50 @@
 </html>
 
 </body>
+=======
+<!-- -------------------- FOOTER SECTION -------------------- -->
+
+<section class="sections-group footer-section">
+    <footer class="footer">
+        <div class="footer__box-container">
+
+            <div class="footer__box footer__box-logo&media-container">
+                <a href="../html/index.html"><img src="../media/imgs_Login/logo.png" alt="Logo" class="footer__box-logo"></a>
+
+                <div class="footer__media-container">
+                    <a href="#" class="footer__media-link">Facebook</a>
+                    <span class="footer__divisor-line-media">-</span>
+                    <a href="#" class="footer__media-link">Instagram</a>
+                    <span class="footer__divisor-line-media">-</span>
+                    <a href="#" class="footer__media-link">YouTube</a>
+                </div>
+                
+            </div>
+            
+            <div class="footer__divisor-line"></div>
+            <hr class="footer__hr">
+
+            <div class="footer__box footer__box-links">
+                <ul class="footer__ul">
+                    <li class="footer__li"><a href="../html/index.html" class="footer__link">Inicio</a></li>
+                    <li class="footer__li"><a href="../html/lessons.html" class="footer__link">Lecciones</a></li>
+                    <li class="footer__li"><a href="../html/challenge.html" class="footer__link">Desafíos</a></li>
+                    <li class="footer__li"><a href="#" class="footer__link">Perfil</a></li>
+                </ul>
+            </div>
+
+            <div class="footer__divisor-line"></div>
+            <hr class="footer__hr">
+
+            <div class="footer__box footer__box-locate">
+                <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.877216474902!2d-70.69044072529607!3d19.41771038185848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb1cf196f54ddfb%3A0x740cafb0dbd0ef9f!2sInstituto%20Polit%C3%A9cnico%20Industrial%20Don%20Bosco!5e0!3m2!1ses-419!2sdo!4v1742771532810!5m2!1ses-419!2sdo" width="380" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="footer__box-map"></iframe>
+            </div>
+        </div>
+    </footer>
+</section>
+
+</body>
+<script src="../js/app.js"></script>
+<script src="../js/tab-content.js"></script>
+>>>>>>> 72bf7e7dad6f26cc106ff4efe3f4293888910f3b
 </html>
