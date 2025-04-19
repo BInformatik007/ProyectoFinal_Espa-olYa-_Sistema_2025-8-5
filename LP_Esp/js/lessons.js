@@ -1,3 +1,6 @@
+
+// Función para filtrar lecciones por título o categoría
+
 function filtrarLecciones() {
     let input = document.querySelector('.main__filter-input').value.toLowerCase();
     let tarjetas = document.querySelectorAll(".main__lessons-cards");
