@@ -20,29 +20,68 @@
     display: flex;
 }
 
-.main__filters{
-    margin: 0 5px;
-    padding: 8px 15px;
+.main__lessons-category-select{
+    width: 70%;
+    margin-right: 5px;
+    padding: 10px;
+    border-radius: 10px;
     cursor: pointer;
-    transform-origin: center;
-    transition: transform 0.3s ease;
-}
-
-.main__filters:hover{
-    transform: scale(0.90);
 }
 
 .main__filter-input{
     width: 100%;
     margin-right: 5px;
     padding: 0 20px;
+    border: solid 1px #333;
+}
+
+.main__filter-container{
+    margin-top: 10px;
 }
 
 .main__filters, .main__filter-input{
-    background-color: transparent;
-    border: solid 1px #333;
     border-radius: 10px;
     outline: none;
+}
+
+.main__filters{
+    padding: 5px 20px;
+    margin: 0 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.easy{
+    background-color: #10b981;
+    color: #fff;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.easy:hover{
+    transform: scale(1.03);
+}
+
+.medium{
+    background-color: #f59e0b;
+    color: #fff;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.medium:hover{
+    transform: scale(1.03);
+}
+
+.hard{
+    background-color: #ef4444;
+    color: #fff;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.hard:hover{
+    transform: scale(1.03);
 }
 
 /* -------------------- MAIN-CARDS START -------------------- */
@@ -101,16 +140,18 @@
 .main__lessons-cards-content-description{
     font-size: 0.9rem;
 }
-/* Añade esto a tu archivo lessons.css */
-.filtro-activo {
-    background-color: #4CAF50;
-    color: white;
-    font-weight: bold;
+
+.easy-category{
+    background-color: #10b981;
+    color: #fff;
 }
 
-#mensaje-sin-resultados {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 20px;
-    color: #666;
+.medium-category{
+    background-color: #f59e0b;
+    color: #fff;
+}
+
+.hard-category{
+    background-color: #ef4444;
+    color: #fff;
 }

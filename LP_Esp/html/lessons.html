@@ -46,401 +46,286 @@
                 
                 <div class="main__filter-container">
                     <input type="text" class="main__filter-input" placeholder="Buscar lecciones..." onkeyup="filtrarLecciones()">
-                    <button type="button" class="main__filters">
-                        <i class="fas fa-filter"></i>
-                    </button>
-                    <button type="button" class="main__filters" onclick="filtrarPorCategoria('Gramática')">Gramática</button>
-                    <button type="button" class="main__filters" onclick="filtrarPorCategoria('Vocabulario')">Vocabulario</button>
-                    <button type="button" class="main__filters" onclick="filtrarPorCategoria('Ortografía')">Ortografía</button>
+
+                    <select class="main__lessons-category-select" id="categoriaSelect">
+                        <option value="" class="main__lessons-category-option">Todas las categorías</option>
+                        <option value="El ensayo" class="main__lessons-category-option">El ensayo</option>
+                        <option value="La reseña literaria" class="main__lessons-category-option">La reseña literaria</option>
+                        <option value="El entremés" class="main__lessons-category-option">El entremés</option>
+                        <option value="La poesía sorprendida" class="main__lessons-category-option">La poesía sorprendida</option>
+                        <option value="La carta de autopresentación" class="main__lessons-category-option">La carta de autopresentación</option>
+                    </select>
                 </div>
+                
+                <!-- Filtros de nivel -->
+                <div class="main__filter-container">
+                    <button type="button" class="main__filters easy main__filter-nivel" data-nivel="Nivel Básico">Nivel Básico</button>
+                    <button type="button" class="main__filters medium main__filter-nivel" data-nivel="Nivel Intermedio">Nivel Intermedio</button>
+                    <button type="button" class="main__filters hard main__filter-nivel" data-nivel="Nivel Avanzado">Nivel Avanzado</button>
+                </div>
+                
             </div>
 
 <!-- -------------------- MAIN-CARDS SECTION -------------------- -->
             <div class="main__lessons-cards-container" id="contenedor-lecciones">
+
+<!-- -------------------- MAIN-CARDS EASY SECTION -------------------- -->
                 
-                <!-- Lecciones de Gramática (8) -->
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
+                <!-- El ensayo - Básico -->
+                <div class="main__lessons-cards" data-level="Nivel Básico" onclick="window.location.href='lessons-tests.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica1.jpg" alt="Presente simple" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/ensayo.jpg" alt="El ensayo" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
-                            <p class="main__lessons-cards-content-time">30 min</p>
+                            <p class="main__lessons-cards-content-category easy-category">El ensayo</p>
+                            <p class="main__lessons-cards-content-time">15 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">El presente simple</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a conjugar verbos regulares e irregulares en presente.</p>
+                            <h2 class="main__lessons-cards-content-title">Partes del ensayo</h2>
+                            <p class="main__lessons-cards-content-description">Conoce la introducción, desarrollo y conclusión de un ensayo.</p>
                         </div>
                     </div>
                 </div>
-                
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
+
+                <!-- La reseña literaria - Básico -->
+                <div class="main__lessons-cards" data-level="Nivel Básico" onclick="window.location.href='lessons-tests.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica2.jpg" alt="Pasado simple" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/resena.jpg" alt="La reseña" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-category easy-category">La reseña literaria</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">¿Qué es una reseña?</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a resumir y opinar sobre un libro de forma clara.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- El entremés - Básico -->
+                <div class="main__lessons-cards" data-level="Nivel Básico" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/entremes.jpg" alt="El entremés" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category easy-category">El entremés</p>
+                            <p class="main__lessons-cards-content-time">15 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Características del entremés</h2>
+                            <p class="main__lessons-cards-content-description">Explora este tipo de obra breve y humorística.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- La poesía sorprendida - Básico -->
+                <div class="main__lessons-cards" data-level="Nivel Básico" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/poesia.jpg" alt="Poesía sorprendida" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category easy-category">La poesía sorprendida</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Introducción al movimiento</h2>
+                            <p class="main__lessons-cards-content-description">Conoce el origen y estilo de esta poesía dominicana.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carta de autopresentación - Básico -->
+                <div class="main__lessons-cards" data-level="Nivel Básico" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/carta.jpg" alt="Carta de autopresentación" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category easy-category">Carta de autopresentación</p>
+                            <p class="main__lessons-cards-content-time">15 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Cómo escribir tu carta</h2>
+                            <p class="main__lessons-cards-content-description">Aprende a presentarte de forma clara y profesional.</p>
+                        </div>
+                    </div>
+                </div>
+
+<!-- -------------------- MAIN-CARDS MEDIUM SECTION -------------------- -->
+
+                <!-- El ensayo - Intermedio -->
+                <div class="main__lessons-cards" data-level="Nivel Intermedio" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ensayo2.jpg" alt="El ensayo" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category medium-category">El ensayo</p>
+                            <p class="main__lessons-cards-content-time">25 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Tipos de ensayo</h2>
+                            <p class="main__lessons-cards-content-description">Identifica los diferentes tipos de ensayo y sus usos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- La reseña literaria - Intermedio -->
+                <div class="main__lessons-cards" data-level="Nivel Intermedio" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/resena2.jpg" alt="La reseña" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category medium-category">La reseña literaria</p>
+                            <p class="main__lessons-cards-content-time">30 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Estructura de una reseña</h2>
+                            <p class="main__lessons-cards-content-description">Aprende cómo se organiza una reseña literaria.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- El entremés - Intermedio -->
+                <div class="main__lessons-cards" data-level="Nivel Intermedio" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/entremes2.jpg" alt="El entremés" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category medium-category">El entremés</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Contexto histórico</h2>
+                            <p class="main__lessons-cards-content-description">Explora el origen y función del entremés en el teatro.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- La poesía sorprendida - Intermedio -->
+                <div class="main__lessons-cards" data-level="Nivel Intermedio" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/poesia2.jpg" alt="La poesía sorprendida" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category medium-category">La poesía sorprendida</p>
+                            <p class="main__lessons-cards-content-time">30 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Imágenes poéticas</h2>
+                            <p class="main__lessons-cards-content-description">Reconoce las imágenes poéticas más comunes en los poemas.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carta de autopresentación - Intermedio -->
+                <div class="main__lessons-cards" data-level="Nivel Intermedio" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/carta2.jpg" alt="Carta de autopresentación" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category medium-category">La carta de autopresentación</p>
+                            <p class="main__lessons-cards-content-time">20 min</p>
+                        </div>
+                        <div class="main__lessons-cards-content-down">
+                            <h2 class="main__lessons-cards-content-title">Carta formal</h2>
+                            <p class="main__lessons-cards-content-description">Escribe cartas formales para entrevistas y becas.</p>
+                        </div>
+                    </div>
+                </div>
+
+<!-- -------------------- MAIN-CARDS HARD SECTION -------------------- -->
+
+                <!-- El ensayo - Avanzado -->
+                <div class="main__lessons-cards" data-level="Nivel Avanzado" onclick="window.location.href='lessons-tests.html'">
+                    <div class="main__lessons-cards-layout">
+                        <img src="/LP_Esp/media/imgs_Login/ensayo3.jpg" alt="El ensayo" class="main__lessons-cards-img">
+                    </div>
+                    <div class="main__lessons-cards-content">
+                        <div class="main__lessons-cards-content-top">
+                            <p class="main__lessons-cards-content-category hard-category">El ensayo</p>
                             <p class="main__lessons-cards-content-time">35 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">El pasado simple</h2>
-                            <p class="main__lessons-cards-content-description">Domina los tiempos pasados para contar historias y experiencias.</p>
+                            <h2 class="main__lessons-cards-content-title">Ensayo argumentativo</h2>
+                            <p class="main__lessons-cards-content-description">Redacta un ensayo con postura clara y evidencias.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
+                <!-- La reseña literaria - Avanzado -->
+                <div class="main__lessons-cards" data-level="Nivel Avanzado" onclick="window.location.href='lessons-tests.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica3.jpg" alt="Futuro" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/resena3.jpg" alt="La reseña literaria" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
-                            <p class="main__lessons-cards-content-time">25 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">El futuro</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a expresar planes y predicciones en español.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica4.jpg" alt="Subjuntivo" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
-                            <p class="main__lessons-cards-content-time">40 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">El modo subjuntivo</h2>
-                            <p class="main__lessons-cards-content-description">Domina este modo verbal para expresar deseos y dudas.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica5.jpg" alt="Pronombres" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Pronombres personales</h2>
-                            <p class="main__lessons-cards-content-description">Aprende los pronombres y su uso correcto en oraciones.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica6.jpg" alt="Artículos" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
-                            <p class="main__lessons-cards-content-time">15 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Artículos definidos e indefinidos</h2>
-                            <p class="main__lessons-cards-content-description">Domina el uso de 'el, la, los, las, un, una, unos, unas'.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica7.jpg" alt="Adjetivos" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
-                            <p class="main__lessons-cards-content-time">25 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Adjetivos y concordancia</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a hacer concordar adjetivos con sustantivos.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/gramatica8.jpg" alt="Preposiciones" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Gramática</p>
+                            <p class="main__lessons-cards-content-category hard-category">La reseña literaria</p>
                             <p class="main__lessons-cards-content-time">30 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Preposiciones comunes</h2>
-                            <p class="main__lessons-cards-content-description">Domina el uso de 'a, de, en, por, para, con, sin'.</p>
+                            <h2 class="main__lessons-cards-content-title">Reseña crítica</h2>
+                            <p class="main__lessons-cards-content-description">Analiza y opina profundamente sobre una obra.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lecciones de Vocabulario (8) -->
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
+                <!-- El entremés - Avanzado -->
+                <div class="main__lessons-cards" data-level="Nivel Avanzado" onclick="window.location.href='lessons-tests.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario1.jpg" alt="Saludos" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/entremes3.jpg" alt="El entremés" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
-                            <p class="main__lessons-cards-content-time">15 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Saludos y presentaciones</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a saludar y presentarte en diferentes contextos.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario2.jpg" alt="Familia" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">La familia y relaciones</h2>
-                            <p class="main__lessons-cards-content-description">Vocabulario esencial para hablar de familia y relaciones.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario3.jpg" alt="Comida" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
-                            <p class="main__lessons-cards-content-time">25 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Comida y restaurantes</h2>
-                            <p class="main__lessons-cards-content-description">Palabras y frases para ordenar comida y hablar de gastronomía.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario4.jpg" alt="Ciudad" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">La ciudad y direcciones</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a pedir y dar direcciones en español.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario5.jpg" alt="Trabajo" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-category hard-category">El entremés</p>
                             <p class="main__lessons-cards-content-time">30 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Profesiones y trabajo</h2>
-                            <p class="main__lessons-cards-content-description">Vocabulario para hablar de profesiones y entorno laboral.</p>
+                            <h2 class="main__lessons-cards-content-title">Escribir un entremés</h2>
+                            <p class="main__lessons-cards-content-description">Crea un entremés original con personajes y humor.</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
+                <!-- La poesía sorprendida - Avanzado -->
+                <div class="main__lessons-cards" data-level="Nivel Avanzado" onclick="window.location.href='lessons-tests.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario6.jpg" alt="Tiempo" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/poesia3.jpg" alt="La poesía sorprendida" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
-                            <p class="main__lessons-cards-content-time">15 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">El tiempo y el clima</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a hablar sobre el clima y las estaciones.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario7.jpg" alt="Números" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Números y cantidades</h2>
-                            <p class="main__lessons-cards-content-description">Domina los números cardinales y ordinales en español.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/vocabulario8.jpg" alt="Viajes" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Vocabulario</p>
+                            <p class="main__lessons-cards-content-category hard-category">La poesía sorprendida</p>
                             <p class="main__lessons-cards-content-time">25 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Viajes y transporte</h2>
-                            <p class="main__lessons-cards-content-description">Vocabulario esencial para viajar en países hispanohablantes.</p>
+                            <h2 class="main__lessons-cards-content-title">Interpretar un poema</h2>
+                            <p class="main__lessons-cards-content-description">Comprende el significado oculto de un poema.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Lecciones de Ortografía (8) -->
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
+                <!-- Carta de autopresentación - Avanzado -->
+                <div class="main__lessons-cards" data-level="Nivel Avanzado" onclick="window.location.href='lessons-tests.html'">
                     <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia1.jpg" alt="Acentuación" class="main__lessons-cards-img">
+                        <img src="/LP_Esp/media/imgs_Login/carta3.jpg" alt="Carta de autopresentación" class="main__lessons-cards-img">
                     </div>
                     <div class="main__lessons-cards-content">
                         <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">30 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Reglas de acentuación</h2>
-                            <p class="main__lessons-cards-content-description">Aprende las reglas para acentuar palabras correctamente.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia2.jpg" alt="B-V" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
+                            <p class="main__lessons-cards-content-category hard-category">La carta de autopresentación</p>
                             <p class="main__lessons-cards-content-time">25 min</p>
                         </div>
                         <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Uso de B y V</h2>
-                            <p class="main__lessons-cards-content-description">Domina las reglas para diferenciar estas letras.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia3.jpg" alt="G-J" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Uso de G y J</h2>
-                            <p class="main__lessons-cards-content-description">Reglas para usar correctamente estas letras.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia4.jpg" alt="H" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">15 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Uso de la H</h2>
-                            <p class="main__lessons-cards-content-description">Aprende cuándo usar esta letra muda.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia5.jpg" alt="Puntuación" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">30 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Signos de puntuación</h2>
-                            <p class="main__lessons-cards-content-description">Uso correcto de comas, puntos, signos de interrogación, etc.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia6.jpg" alt="Mayúsculas" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Uso de mayúsculas</h2>
-                            <p class="main__lessons-cards-content-description">Reglas para el uso correcto de letras mayúsculas.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia7.jpg" alt="Homófonos" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">25 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Palabras homófonas</h2>
-                            <p class="main__lessons-cards-content-description">Aprende a diferenciar palabras que suenan igual pero se escriben diferente.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="main__lessons-cards" onclick="window.location.href='lessons-tests.html'">
-                    <div class="main__lessons-cards-layout">
-                        <img src="/LP_Esp/media/imgs_Login/ortografia8.jpg" alt="Extranjerismos" class="main__lessons-cards-img">
-                    </div>
-                    <div class="main__lessons-cards-content">
-                        <div class="main__lessons-cards-content-top">
-                            <p class="main__lessons-cards-content-category">Ortografía</p>
-                            <p class="main__lessons-cards-content-time">20 min</p>
-                        </div>
-                        <div class="main__lessons-cards-content-down">
-                            <h2 class="main__lessons-cards-content-title">Extranjerismos y adaptaciones</h2>
-                            <p class="main__lessons-cards-content-description">Cómo escribir correctamente palabras de otros idiomas.</p>
+                            <h2 class="main__lessons-cards-content-title">Carta profesional</h2>
+                            <p class="main__lessons-cards-content-description">Redacta cartas para empleo o universidades.</p>
                         </div>
                     </div>
                 </div>
@@ -451,6 +336,6 @@
     </section>
 </body>
 <script src="https://kit.fontawesome.com/8be0b9b871.js" crossorigin="anonymous"></script>
-<script type="module" src="/LP_Esp/js/lessons.js"></script>
+<script type="module" src="../js/lessons.js"></script>
 <script src="../js/load-footer.js"></script>
 </html>
