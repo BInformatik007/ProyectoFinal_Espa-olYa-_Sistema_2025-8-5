@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/LP_Esp/css/header&footer.css">
     <link rel="stylesheet" href="/LP_Esp/css/profile.css">
     <link rel="icon" href="/LP_Esp/media/imgs_Login/logo-pestaña.png" type="image/png">
-    <script src="https://kit.fontawesome.com/8be0b9b871.js" crossorigin="anonymous"></script>
     <title>EspañolYa</title>
 </head>
 <body>
@@ -46,10 +45,10 @@
             <div class="profile__content-container">
                 <div class="profile__top-content-container">
                     <div class="profile__profile-img-container">
-                        <img src="/LP_Esp/media/images/profile-img.jpeg" alt="Imagen de perfil" class="profile__profile-img">
+                        <img src="" alt="Imagen de perfil" class="profile__profile-img">
                     </div>
                     <div class="profile__text-content-container">
-                        <h2 class="profile__user-name">Estudiante</h2>
+                        <h2 class="profile__user-name">404</h2>
                         <p class="profile__user-level">Nivel X</p>
                     </div>
                     <div class="profile__data-counting-container">
@@ -76,12 +75,47 @@
                         <button class="profile__btn profile__edit-profile" id="profile__edit-profile">Editar perfil</button>
                         <button class="profile__btn profile__config-btn" id="profile__config-btn">Ajustes</button>
                     </div>
-                    <!-- <div class="profile__emergent-layout-container">
-
-                    </div> -->
                 </div>
             </div>
         </div>
+
+<!-- -------------------- LAYOUTS EMERGENTES -------------------- -->
+
+        <div class="profile__modal hidden" id="edit-profile-modal">
+            <div class="profile__modal-content">
+                <h3 class="profile__modal-title">Editar Perfil</h3>
+
+                <div class="custom-file-upload-wrapper">
+                    <button type="button" class="custom-file-button" id="trigger-file-upload">Cambiar foto de perfil</button>
+                    <input type="file" id="new-profile-pic" accept="image/*" hidden>
+                </div>
+
+
+                <div class="profile__modal-button">
+                    <button id="save-profile" class="profile__btn confirm">Guardar</button>
+                </div>
+                <span class="profile__btn cancel-x" id="close-edit-profile">X</span>
+            </div>
+        </div>
+
+        <div class="profile__modal hidden" id="settings-modal">
+            <div class="profile__modal-content">
+                <h3 class="profile__modal-title">Ajustes</h3>
+
+                <div class="theme-toggle-container">
+                    <span class="theme-toggle-text">Tema oscuro</span>
+                    <label class="theme-switch">
+                        <input type="checkbox" id="toggle-theme">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <button id="logout" class="profile__btn log-out">Cerrar sesión</button>
+                
+                <span class="profile__btn cancel-x" id="close-settings">X</span>
+            </div>
+        </div>
+
     </section>
 
 <!-- -------------------- TABLE PROFILE SECTION -------------------- -->
@@ -354,47 +388,9 @@
     </div>
 
 </div>
-<!-- -------------------- FOOTER SECTION -------------------- -->
-
-<section class="sections-group footer-section">
-    <footer class="footer">
-        <div class="footer__box-container">
-
-            <div class="footer__box footer__box-logo&media-container">
-                <a href="../html/index.html"><img src="../media/imgs_Login/logo.png" alt="Logo" class="footer__box-logo"></a>
-
-                <div class="footer__media-container">
-                    <a href="#" class="footer__media-link">Facebook</a>
-                    <span class="footer__divisor-line-media">-</span>
-                    <a href="#" class="footer__media-link">Instagram</a>
-                    <span class="footer__divisor-line-media">-</span>
-                    <a href="#" class="footer__media-link">YouTube</a>
-                </div>
-                
-            </div>
-            
-            <div class="footer__divisor-line"></div>
-            <hr class="footer__hr">
-
-            <div class="footer__box footer__box-links">
-                <ul class="footer__ul">
-                    <li class="footer__li"><a href="../html/index.html" class="footer__link">Inicio</a></li>
-                    <li class="footer__li"><a href="../html/lessons.html" class="footer__link">Lecciones</a></li>
-                    <li class="footer__li"><a href="../html/challenge.html" class="footer__link">Desafíos</a></li>
-                    <li class="footer__li"><a href="#" class="footer__link">Perfil</a></li>
-                </ul>
-            </div>
-
-            <div class="footer__divisor-line"></div>
-            <hr class="footer__hr">
-
-            <div class="footer__box footer__box-locate">
-                <iframe title="location" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.877216474902!2d-70.69044072529607!3d19.41771038185848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8eb1cf196f54ddfb%3A0x740cafb0dbd0ef9f!2sInstituto%20Polit%C3%A9cnico%20Industrial%20Don%20Bosco!5e0!3m2!1ses-419!2sdo!4v1742771532810!5m2!1ses-419!2sdo" width="380" height="180" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="footer__box-map"></iframe>
-            </div>
-        </div>
-    </footer>
-</section>
 
 </body>
-<script src="../js/profile.js"></script>
+<script src="https://kit.fontawesome.com/8be0b9b871.js" crossorigin="anonymous"></script>
+<script type="module" src="../js/profile.js"></script>
+<script src="../js/load-footer.js"></script>
 </html>

@@ -34,7 +34,7 @@
     align-items: center;
 }
 
-.profile__profile-img{
+.profile__profile-img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
@@ -77,6 +77,160 @@
 .profile__edit-profile{
     background-color: #10b981;
     color: #fff;
+}
+
+/* -------------------- LAYOUTS PROFILE SECTION -------------------- */
+
+.profile__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.profile__modal-content {
+    position: relative;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 450px;
+}
+
+.profile__modal-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin: 15px 0;
+    color: #10b981;
+}
+
+.profile__modal-text {
+    display: block;
+    font-size: 1rem;
+    margin: 0 0 5px 10px;
+}
+
+.profile__modal-button {
+    margin-top: 20px;
+}
+
+.custom-file-upload-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.custom-file-button {
+    padding: 10px 20px;
+    border: 1px solid #10b981;
+    border-radius: 8px;
+    cursor: pointer;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.custom-file-button:hover {
+    transform: scale(0.95);
+}
+
+.profile__btn.confirm{
+    width: 100%;
+}
+
+.log-out{
+    width: 100%;
+    background-color: #c33;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.2rem;
+}
+
+.profile__btn.confirm {
+    background-color: #10b981;
+    color: white;
+}
+
+.profile__btn.cancel, .profile__btn.cancel-x {
+    background-color: #c33;
+    color: white;
+}
+
+.profile__btn.cancel-x{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-weight: 700;
+    padding: 5px 10px;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.theme-toggle-container {
+    gap: 10px;
+    margin: 40px 0 50px;
+}
+
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.theme-switch input:checked + .slider {
+    background-color: #10b981;
+}
+
+.theme-switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.theme-toggle-text {
+    font-weight: 600;
+    color: #333;
 }
 
 /* -------------------- NAV BAR PROFILE SECTION -------------------- */

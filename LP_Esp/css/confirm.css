@@ -1,0 +1,53 @@
+.confirm-email__container{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.confirm-email__card{
+    background-color: #fff;
+    text-align: center;
+    max-width: 500px;
+    width: 100%;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.confirm-email__title{
+    font-size: 24px;
+    font-weight: 700;
+    color: #10b981;
+    margin-bottom: 20px;
+}
+
+.confirm-email__text{
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.confirm-email__link{
+    display: inline-block;
+    background-color: #10b981;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.confirm-email__link:hover{
+    transform: scale(1.05);
+}
+
+.confirm-email__countdown-text, #countdown{
+    font-size: 0.7rem;
+    color: #555;
+}
+
+.confirm-email__countdown-text{
+    margin-top: 15px;
+}  
+
