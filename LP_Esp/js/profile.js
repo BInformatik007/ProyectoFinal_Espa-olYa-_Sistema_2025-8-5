@@ -174,3 +174,25 @@ document.getElementById('profile__config-btn').addEventListener('click', () => {
 document.getElementById('close-settings').addEventListener('click', () => {
     document.getElementById('settings-modal').classList.add('hidden');
 });
+
+// ------------------ Cerrar sesión ------------------
+document.getElementById('logout').addEventListener('click', async () => {
+    const { error } = await supabase.auth.signOut();
+
+    if (error) {
+        alert('Error al cerrar sesión: ' + error.message);
+    } else {
+        window.location.href = '../html/login.html';
+    }
+});
+
+// Verificación de sesión activa
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+        // Redirigir al login si no hay sesión
+        window.location.href = '/LP_Esp/html/login.html';
+        return;
+    }
+});

@@ -1,20 +1,25 @@
+// index.js
+import { supabase } from './supabaseClient.js';
 
-// Barra de progreso en los módulos de las tarjetas del index
+// Verificación de sesión activa
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabase.auth.getSession();
 
-document.addEventListener("DOMContentLoaded", () => {
+    if (!session) {
+        // Redirigir al login si no hay sesión
+        window.location.href = '/LP_Esp/html/login.html';
+        return;
+    }
+
+    // (Aquí va tu código actual para las barras de progreso ↓)
     const progressContainers = document.querySelectorAll('.main__module-cards-progress-container');
 
     progressContainers.forEach(container => {
-    const progressBar = container.querySelector('.main__module-cards-progress-bar');
-    const progressText = container.querySelector('.main__module-cards-progress-text');
-    
-      // Obtenemos la cadena que indica el ancho, p. ej. "65%"
-    const progressValue = progressBar.style.width; // "65%"
-    
-      // Extraemos solo el número (ej: 65) para luego volver a agregar el símbolo
-    const numericValue = parseInt(progressValue, 10);
-    
-      // Mostramos “65% completado” (o lo que corresponda) debajo de la barra
-    progressText.textContent = `${numericValue}% completado`;
+        const progressBar = container.querySelector('.main__module-cards-progress-bar');
+        const progressText = container.querySelector('.main__module-cards-progress-text');
+
+        const progressValue = progressBar.style.width;
+        const numericValue = parseInt(progressValue, 10);
+        progressText.textContent = `${numericValue}% completado`;
     });
 });

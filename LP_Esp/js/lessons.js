@@ -1,3 +1,5 @@
+import { supabase } from './supabaseClient.js';
+
 // funcion-buscar.js - Versión optimizada y corregida
 
 // Variable para guardar el filtro activo
@@ -96,4 +98,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Mostrar todas las lecciones al inicio
     filtrarLecciones();
+});
+
+// Verificación de sesión activa
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+        // Redirigir al login si no hay sesión
+        window.location.href = '/LP_Esp/html/login.html';
+        return;
+    }
 });
