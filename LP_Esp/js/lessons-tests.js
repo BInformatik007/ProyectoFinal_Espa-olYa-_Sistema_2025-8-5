@@ -1,5 +1,7 @@
 import { supabase } from './supabaseClient.js';
 
+// Función para que el preview tome el título y descripción de la lección.
+
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const lessonId = urlParams.get('id');
