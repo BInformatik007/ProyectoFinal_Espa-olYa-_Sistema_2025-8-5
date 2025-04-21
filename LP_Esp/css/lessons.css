@@ -111,6 +111,11 @@
     border-top-right-radius: 10px;
 }
 
+.main__lessons-cards-img{
+    width: 100%;
+    height: 100%;
+}
+
 .main__lessons-cards-content{
     padding: 20px;
 }
