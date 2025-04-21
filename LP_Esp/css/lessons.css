@@ -105,8 +105,8 @@
     transform: scale(1.03);
 }
 
-.main__lessons-cards-layout{
-    height: 150px;
+.main__lessons-cards-layout, .main__lessons-cards-img{
+    height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
