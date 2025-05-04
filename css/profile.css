@@ -6,6 +6,11 @@
 
 /* -------------------- PROFILE SECTION --------------------  */
 
+.hidden {
+    display: none;
+}
+
+
 .profile__container{
     display: flex;
     justify-content: center;
@@ -81,7 +86,7 @@
 
 /* -------------------- LAYOUTS PROFILE SECTION -------------------- */
 
-.profile__modal{
+.profile__modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -299,24 +304,21 @@
     font-weight: 800;
 }
 
-.profile__lessons-btn{
+.profile__level-test-btn{
     font-size: .9rem;
     font-weight: 600;
     border: none;
     border-radius: 6px;
     padding: 5px 15px;
     background-color: #10b981;
+    color: #fff;
     transform-origin: center;
     transition: transform 0.3s ease;
     cursor: pointer;
 }
 
-.profile__lessons-btn:hover{
+.profile__level-test-btn:hover{
     transform: scale(1.05);
-}
-
-.profile__lessons-link{
-    color: #fff;
 }
 
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */

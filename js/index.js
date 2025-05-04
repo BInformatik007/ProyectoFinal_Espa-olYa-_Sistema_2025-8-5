@@ -1,17 +1,32 @@
-// index.js
 import { supabase } from './supabaseClient.js';
 
-// Verificación de sesión activa
 document.addEventListener("DOMContentLoaded", async () => {
     const { data: { session } } = await supabase.auth.getSession();
 
     if (!session) {
-        // Redirigir al login si no hay sesión
         window.location.href = '/LP_Esp/html/login.html';
         return;
     }
 
-    // (Aquí va tu código actual para las barras de progreso ↓)
+    // Obtener rol del usuario
+    const { data: userData } = await supabase
+        .from('users')
+        .select('role_id')
+        .eq('id', session.user.id)
+        .single();
+
+    const { data: roleData } = await supabase
+        .from('roles')
+        .select('name')
+        .eq('id', userData.role_id)
+        .single();
+
+    // Ocultar secciones si no es profesor
+    if (roleData.name !== 'teacher') {
+        document.querySelectorAll('.only-teacher').forEach(el => el.style.display = 'none');
+    }
+
+    // Código actual de progreso
     const progressContainers = document.querySelectorAll('.main__module-cards-progress-container');
 
     progressContainers.forEach(container => {

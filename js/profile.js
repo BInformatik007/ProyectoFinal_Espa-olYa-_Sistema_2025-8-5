@@ -179,12 +179,15 @@ document.getElementById('close-settings').addEventListener('click', () => {
 document.getElementById('logout').addEventListener('click', async () => {
     const { error } = await supabase.auth.signOut();
 
+    localStorage.removeItem('user_role');
+
     if (error) {
         alert('Error al cerrar sesión: ' + error.message);
     } else {
-        window.location.href = '../html/login.html';
+        window.location.href = '/LP_Esp/html/login.html';
     }
 });
+
 
 // Verificación de sesión activa
 document.addEventListener("DOMContentLoaded", async () => {
@@ -194,5 +197,39 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Redirigir al login si no hay sesión
         window.location.href = '/LP_Esp/html/login.html';
         return;
+    }
+});
+
+// ------------------ Mostrar botón solo a profesores ------------------
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session || !session.user) return;
+
+    const userId = session.user.id;
+
+    const { data: user, error: userError } = await supabase
+        .from('users')
+        .select('role_id')
+        .eq('id', userId)
+        .single();
+
+    if (userError || !user) return;
+
+    const { data: role, error: roleError } = await supabase
+        .from('roles')
+        .select('name')
+        .eq('id', user.role_id)
+        .single();
+
+    if (roleError || !role) return;
+
+    if (role.name === 'teacher') {
+        const teacherPanelBtn = document.getElementById('go-to-teacher-panel');
+        if (teacherPanelBtn) {
+            teacherPanelBtn.classList.remove('hidden');
+            teacherPanelBtn.addEventListener('click', () => {
+                window.location.href = '/LP_Esp/html/teacher-panel.html';
+            });
+        }
     }
 });

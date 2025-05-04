@@ -45,7 +45,7 @@ async function handleRegistration(event) {
         email,
         password,
         options: {
-            emailRedirectTo: 'http://127.0.0.1:5500/LP_Esp/html/confirm.html'  // ✅ Ruta correcta
+            emailRedirectTo: 'http://127.0.0.1:5500/LP_Esp/html/confirm.html'
         }
     });
 
@@ -54,20 +54,20 @@ async function handleRegistration(event) {
         return;
     }
 
-    // Esperar a que el usuario esté registrado y confirmado
     const user = signUpData?.user;
     if (!user) {
         alert('No se pudo registrar correctamente el usuario.');
         return;
     }
 
-    // Insertar los datos en tu tabla "users"
+    // Insertar en tabla 'users' con rol de estudiante (role_id: 1)
     const { error: insertError } = await supabase.from('users').insert({
-        id: user.id, // ✅ Este ID debe coincidir con auth.users.id
+        id: user.id,
         enrollment,
         first_name,
         last_name,
         email,
+        role_id: 1, // 👈 Asignar automáticamente el rol de estudiante
         profile_picture: '../media/img/avatar_img/default-avatar-img.png',
         registered_at: new Date().toISOString()
     });
@@ -104,7 +104,7 @@ async function handleLogin(event) {
         return;
     }
 
-    // Iniciar sesión en Supabase Auth con el correo obtenido
+    // Iniciar sesión
     const { data: session, error: loginError } = await supabase.auth.signInWithPassword({
         email: userRecord.email,
         password
