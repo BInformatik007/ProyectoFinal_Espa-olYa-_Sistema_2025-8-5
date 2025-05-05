@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const { data: userData, error: userError } = await supabase
         .from('users')
-        .select('first_name, last_name, profile_picture')
+        .select('first_name, last_name, profile_picture, registered_at')
         .eq('id', userId)
         .single();
 
@@ -27,12 +27,51 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
+    // Calcular días desde el registro
+    const firstLogin = new Date(userData.registered_at);
+    const today = new Date();
+    let diasLogueado = Math.ceil((today - firstLogin) / (1000 * 60 * 60 * 24));
+    if (diasLogueado < 1) diasLogueado = 1;
+
+    document.getElementById('profile__data-lessons-days').textContent = diasLogueado;
+
+    // Obtener minutos estudiados sumando duración de las sesiones
+    const { data: sessions, error: sessionsError } = await supabase
+    .from('lesson_sessions')
+    .select('started_at, ended_at')
+    .eq('user_id', userId);
+
+    let totalMinutes = 0;
+
+    if (sessions && !sessionsError) {
+    sessions.forEach(session => {
+        const start = new Date(session.started_at);
+        const end = new Date(session.ended_at);
+        const minutes = Math.floor((end - start) / 60000); // 60000 ms = 1 minuto
+        if (minutes > 0) totalMinutes += minutes;
+    });
+    }
+
+    document.getElementById('profile__statistics-value-minutes').textContent = totalMinutes;
+
+    // Obtener insignias obtenidas
+    const { data: userBadges, error: badgeError } = await supabase
+    .from('user_badges')
+    .select('badge_id')
+    .eq('user_id', userId);
+
+    const totalBadges = userBadges?.length || 0;
+    document.getElementById('profile__statistics-value-insignia').textContent = totalBadges;
+
+
+    // 👤 Mostrar nombre e imagen
     const fullName = `${userData.first_name} ${userData.last_name}`;
     userNameElement.textContent = fullName;
     userImage.src = userData.profile_picture || "../media/img/avatar_img/default-avatar-img.png";
 
     await actualizarPuntosLeccionesYNivel(userId);
     await actualizarProgresoPorModulo(userId);
+    await cargarInsignias(userId);
 });
 
 // ------------------ Puntos, Lecciones y Nivel ------------------
@@ -59,7 +98,11 @@ async function actualizarPuntosLeccionesYNivel(userId) {
     document.querySelector('#profile__data-lessons-points').textContent = `${totalPuntos}`;
     document.querySelector('#profile__statistics-value-points').textContent = `${totalPuntos}`;
 
-    // Lecciones completadas
+    
+    // 🔓 Verificar insignias desbloqueadas
+    await verificarInsignias(userId, totalPuntos);
+    await mostrarInsignias(userId);
+// Lecciones completadas
     const leccionesSuperiores = document.querySelectorAll('#profile__data-lessons-lessons');
     leccionesSuperiores.forEach(el => el.textContent = `${totalLecciones}`);
 
@@ -68,11 +111,43 @@ async function actualizarPuntosLeccionesYNivel(userId) {
 }
 
 function obtenerNivelUsuario(puntos) {
-    if (puntos >= 20000) return "Experto";
-    if (puntos >= 15000) return "Avanzado";
-    if (puntos >= 4000) return "Intermedio";
+    if (puntos >= 30000) return "Experto";
+    if (puntos >= 20000) return "Avanzado";
+    if (puntos >= 6000) return "Intermedio";
     if (puntos >= 900) return "Aprendiz";
     return "Principiante";
+}
+
+// Verifica e inserta insignias desbloqueadas
+async function verificarInsignias(userId, totalPoints) {
+    const { data: todasLasInsignias, error: errorInsignias } = await supabase
+        .from('badges')
+        .select('*');
+
+    if (errorInsignias) {
+        console.error('Error al obtener insignias:', errorInsignias);
+        return;
+    }
+
+    const { data: insigniasDesbloqueadas } = await supabase
+        .from('user_badges')
+        .select('badge_id')
+        .eq('user_id', userId);
+
+    const idsDesbloqueadas = insigniasDesbloqueadas?.map(b => b.badge_id) || [];
+
+    const nuevasInsignias = todasLasInsignias.filter(badge =>
+        totalPoints >= badge.required_points && !idsDesbloqueadas.includes(badge.id)
+    );
+
+    for (const badge of nuevasInsignias) {
+        await supabase.from('user_badges').insert({
+            user_id: userId,
+            badge_id: badge.id
+        });
+        console.log(`Insignia desbloqueada: ${badge.name}`);
+    }
+
 }
 
 // ------------------ Progreso por Módulo ------------------
@@ -272,3 +347,49 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     }
 });
+
+// ------------------ Función para cargar insignias ------------------
+async function mostrarInsignias(userId) {
+    const { data: todas, error: e1 } = await supabase.from('badges').select('*');
+    const { data: obtenidas, error: e2 } = await supabase
+        .from('user_badges')
+        .select('badge_id')
+        .eq('user_id', userId);
+
+    if (e1 || e2) {
+        console.error('Error al cargar insignias:', e1 || e2);
+        return;
+    }
+
+    const obtenidasIds = obtenidas.map(b => b.badge_id);
+    const container = document.getElementById('insignia-container');
+    container.innerHTML = '';
+
+    todas.forEach(badge => {
+        const div = document.createElement('div');
+        div.classList.add('profile__insignia-box');
+
+        if (obtenidasIds.includes(badge.id)) {
+            div.classList.add('profile__insignia-box', 'unlocked');
+            div.innerHTML = `
+                <div class="profile__insignia-img-container unlocked">
+                    <i class="fa-solid fa-award profile__insignia-icons"></i>
+                </div>
+                <p class="profile__insignia-name">${badge.name}</p>
+                <p class="profile__insignia-description">${badge.description}</p>
+            `;
+        } else {
+            div.classList.add('profile__insignia-box', 'locked');
+            div.innerHTML = `
+                <div class="profile__insignia-img-container locked">
+                    <i class="fa-solid fa-lock profile__insignia-icons"></i>
+                </div>
+                <p class="profile__insignia-name">${badge.name}</p>
+                <p class="profile__insignia-required">🔒 ${badge.required_points} pts</p>
+            `;
+        }
+        
+
+        container.appendChild(div);
+    });
+}

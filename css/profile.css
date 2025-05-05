@@ -10,7 +10,6 @@
     display: none;
 }
 
-
 .profile__container{
     display: flex;
     justify-content: center;
@@ -79,7 +78,7 @@
     transform: scale(0.95);
 }
 
-.profile__edit-profile{
+.profile__edit-profile, #go-to-teacher-panel{
     background-color: #10b981;
     color: #fff;
 }
@@ -508,9 +507,9 @@
 
 /* -------------------- INSIGNIA PROFILE SECTION -------------------- */
 
-.profile__insignia-boxes-container {
+.profile__insignia-boxes-container{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin-top: 20px;
 }
@@ -519,7 +518,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid #ccc;
+    border: 5px solid #ccc;
     border-radius: 15px;
     padding: 15px;
 }
@@ -540,10 +539,43 @@
     font-size: 1.2rem;
 }
 
-.profile__insignia-content-container{
+.profile__insignia-img-container.locked {
+    background-color: #ccc;
+}
+
+.profile__insignia-box.locked {
+    border: 5px solid #ddd;
+    background-color: #f9f9f9;
+    opacity: 0.6;
+    filter: grayscale(100%);
+}
+
+.profile__insignia-box.unlocked {
+    border: 5px solid #10b981;
+    background-color: #f0fff4;
+    box-shadow: 0 0 10px rgba(0, 200, 83, 0.2);
+    transition: transform 0.2s;
+}
+
+.profile__insignia-box.unlocked:hover {
+    transform: scale(1.03);
+}
+
+.profile__insignia-name{
+    font-size: 1.2rem;
+    font-weight: 600;
     margin-top: 10px;
 }
 
-.profile__insignia-text{
+.profile__insignia-description{
+    font-size: 0.8rem;
+    color: #666;
     text-align: center;
+    margin-top: 5px;
+}
+
+.profile__insignia-required{
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 5px;
 }

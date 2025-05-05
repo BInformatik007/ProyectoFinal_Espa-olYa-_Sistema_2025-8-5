@@ -25,7 +25,7 @@
             <ul class="header__ul">
                 <li class="header__li"><a href="../html/index.html" class="header__link">Inicio</a></li>
                 <li class="header__li"><a href="../html/lessons.html" class="header__link">Lecciones</a></li>
-                <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li>
+                <!-- <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li> -->
                 <li class="header__li"><a href="../html/profile.html" class="header__link">Perfil</a></li>
             </ul>
         </nav>
@@ -74,9 +74,7 @@
                     <div class="profile__buttons-container">
                         <button class="profile__btn profile__edit-profile" id="profile__edit-profile">Editar perfil</button>
                         <button class="profile__btn profile__config-btn" id="profile__config-btn">Ajustes</button>
-                    
-                        <!-- Botón exclusivo para profesores -->
-                        <button class="profile__btn hidden" id="go-to-teacher-panel">Ir al Panel del Profesor</button>
+                        <button class="profile__btn hidden" id="go-to-teacher-panel">Panel administrativo</button>
                     </div>
                     
                 </div>
@@ -296,82 +294,10 @@
             <div class="profile__tab-content" id="insignias">
                 <h3 class="profile__tab-title">Tus insignias</h3>
 
-                <div class="profile__insignia-boxes-container">
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Principiante</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Aprendiz</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Explorador</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Estudioso</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Intelectual</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Mentor</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Maestro</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Leyenda</p>
-                        </div>
-                    </div>
-
+                <div class="profile__insignia-boxes-container" id="insignia-container">
+                    <!-- Las insignias se cargarán aquí dinámicamente con JS -->
                 </div>
-
+                
             </div>
         </div>
     </div>

@@ -8,103 +8,25 @@
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/header&footer.css">
     <link rel="stylesheet" href="../css/font.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background-color: #f4f6f8;
-        }
-        .panel-container {
-            max-width: 1200px;
-            margin: 3rem auto;
-            background-color: #ffffff;
-            padding: 2rem 3rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        p.description {
-            color: #555;
-            margin-bottom: 1.5rem;
-        }
-        button {
-            background-color: #1976d2;
-            color: #ffffff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin: 1rem 0;
-        }
-        button:hover {
-            background-color: #125ea9;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
-        th, td {
-            padding: 14px;
-            border-bottom: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #1976d2;
-            color: white;
-        }
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-        .modal {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.5);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-        .modal.hidden {
-            display: none;
-        }
-        .modal-content {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 450px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        }
-        .modal-content h3 {
-            margin-top: 0;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        .modal-content input, .modal-content select, .modal-content textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 1rem;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 1rem;
-        }
-    </style>
+    <link rel="stylesheet" href="../css/teacher-panel.css">
 </head>
 <body>
     <div class="panel-container">
-        <h1>📚 Panel del Profesor</h1>
-        <p class="description">Desde aquí puedes gestionar estudiantes y revisar su progreso.</p>
+        <div class="panel__header">
+            <h1 class="panel__title">Panel Administrativo</h1>
+            <p class="panel__description">Desde aquí puedes gestionar estudiantes y revisar su progreso.</p>
 
-        <button onclick="loadStudents()">🔍 Ver Estudiantes</button>
+            <hr>
+
+            <div class="panel__btn-container">
+                <button onclick="loadStudents()" class="panel__btn">
+                    <a href="#" class="panel__btn-link">Ver Estudiantes</a>
+                </button>
+                <button class="panel__btn">
+                    <a href="../html/index.html" class="panel__btn-link">Volver al inicio</a>
+                </button>
+            </div>
+        </div>
 
         <table id="students-table" style="display:none">
             <thead>
