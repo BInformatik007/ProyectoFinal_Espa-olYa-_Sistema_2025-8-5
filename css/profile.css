@@ -309,9 +309,7 @@
     font-weight: 600;
     border: none;
     border-radius: 6px;
-    padding: 5px 15px;
     background-color: #10b981;
-    color: #fff;
     transform-origin: center;
     transition: transform 0.3s ease;
     cursor: pointer;
@@ -319,6 +317,12 @@
 
 .profile__level-test-btn:hover{
     transform: scale(1.05);
+}
+
+.profile__level-test-link{
+    display: flex;
+    padding: 5px 15px;
+    color: #fff;
 }
 
 /* -------------------- PROGRESS PROFILE SECTION -------------------- */
