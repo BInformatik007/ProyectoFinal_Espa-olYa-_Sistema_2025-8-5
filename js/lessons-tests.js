@@ -5,31 +5,46 @@ const lessonContentContainer = document.querySelector('.main-lessons-tests__less
 const contentWrapper = document.querySelector('.main-lessons-test__lesson-content');
 const nextBtn = lessonContentContainer.querySelectorAll('.main-lessons-tests__btn-nav')[1];
 const backButton = lessonContentContainer.querySelector('.main-lessons-tests__btn-nav-back');
-const navButtons = lessonContentContainer.querySelector('.main-lessons-tests__btn-nav-container');
 
 let currentActivity = 0;
 let activities = [];
 let correctCount = 0;
+let currentLessonId = null;
+let currentLessonModule = null;
+let currentUser = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
-    const lessonId = parseInt(urlParams.get('id'));
+    currentLessonId = parseInt(urlParams.get('id'));
 
-    if (!lessonId) return;
+    if (!currentLessonId) return;
 
+    // Obtener usuario autenticado
+    const { data: userData, error: userError } = await supabase.auth.getUser();
+    if (userError || !userData.user) {
+        console.error('No se pudo obtener el usuario');
+        return;
+    }
+    currentUser = userData.user;
+
+    // Cargar lección
     const { data: lessonData } = await supabase
         .from('lessons')
-        .select('title, description')
-        .eq('id', lessonId)
+        .select('title, description, module_name')
+        .eq('id', currentLessonId)
         .single();
 
+    if (!lessonData) return;
+
+    currentLessonModule = lessonData.module_name;
     document.querySelector('#lesson-title').textContent = lessonData.title;
     document.querySelector('#lesson-description').textContent = lessonData.description;
 
+    // Cargar actividades
     const { data: activitiesData } = await supabase
         .from('activities')
         .select('*')
-        .eq('lesson_id', lessonId)
+        .eq('lesson_id', currentLessonId)
         .order('activity_number');
 
     activities = activitiesData;
@@ -51,7 +66,7 @@ nextBtn.addEventListener('click', () => {
     if (currentActivity < activities.length) {
         showActivity();
     } else {
-        showSummary();
+        saveLessonProgress();
     }
     nextBtn.disabled = true;
     nextBtn.classList.add('first-back-btn');
@@ -74,113 +89,79 @@ function showActivity() {
             const btn = document.createElement('button');
             btn.textContent = option;
             btn.className = 'option-btn';
-            btn.addEventListener('click', () => validateMultipleChoice(btn, option, activity));
+            btn.addEventListener('click', () => validateAnswer(btn, option, activity));
             activityBox.appendChild(btn);
         });
-
     } else if (activity.type === 'fill_in_blank') {
         const input = document.createElement('input');
         input.type = 'text';
-        input.placeholder = 'Escribe tu respuesta aquí';
+        input.placeholder = activity.hint || '';
+        input.className = 'input-blank';
         activityBox.appendChild(input);
 
-        const checkBtn = document.createElement('button');
-        checkBtn.textContent = 'Verificar';
-        checkBtn.addEventListener('click', () => {
-            const userAnswer = input.value.trim().toLowerCase();
-            const correct = activity.correct_answer[0].toLowerCase();
-            const feedback = document.createElement('p');
-            feedback.className = 'feedback';
-
-            if (userAnswer === correct) {
-                feedback.textContent = '✅ ¡Respuesta correcta!';
-                correctCount++;
-            } else {
-                feedback.textContent = `❌ Incorrecto. ${activity.explanation || 'Respuesta correcta: ' + correct}`;
-            }
-
-            activityBox.appendChild(feedback);
-            checkBtn.disabled = true;
-            input.disabled = true;
-
-            nextBtn.disabled = false;
-            nextBtn.classList.remove('first-back-btn');
+        const submit = document.createElement('button');
+        submit.textContent = 'Verificar';
+        submit.className = 'btn-check';
+        submit.addEventListener('click', () => {
+            validateAnswer(submit, input.value.trim(), activity);
         });
-
-        activityBox.appendChild(checkBtn);
-
+        activityBox.appendChild(submit);
     } else if (activity.type === 'ordering') {
-        const list = document.createElement('ul');
-        list.className = 'ordering-list';
+        const ul = document.createElement('ul');
+        ul.className = 'ordering-list';
+        activity.options.forEach((text, index) => {
+            const li = document.createElement('li');
+            li.textContent = text;
+            li.className = 'ordering-item';
+            li.draggable = true;
+            li.dataset.index = index;
 
-        const options = [...activity.options].sort(() => Math.random() - 0.5);
-
-        options.forEach(text => {
-            const item = document.createElement('li');
-            item.textContent = text;
-            item.draggable = true;
-            item.className = 'ordering-item';
-
-            item.addEventListener('dragstart', e => {
-                e.dataTransfer.setData('text/plain', e.target.textContent);
-                e.target.classList.add('dragging');
+            li.addEventListener('dragstart', e => {
+                e.dataTransfer.setData('text/plain', index);
             });
 
-            item.addEventListener('dragover', e => {
+            li.addEventListener('dragover', e => {
                 e.preventDefault();
-                const dragging = document.querySelector('.dragging');
-                const bounding = item.getBoundingClientRect();
-                const offset = e.clientY - bounding.top;
-                const middle = bounding.height / 2;
-
-                if (offset > middle) {
-                    item.parentNode.insertBefore(dragging, item.nextSibling);
-                } else {
-                    item.parentNode.insertBefore(dragging, item);
-                }
+                li.classList.add('drag-over');
             });
 
-            item.addEventListener('drop', e => e.preventDefault());
-            item.addEventListener('dragend', e => e.target.classList.remove('dragging'));
+            li.addEventListener('dragleave', () => li.classList.remove('drag-over'));
 
-            list.appendChild(item);
+            li.addEventListener('drop', e => {
+                e.preventDefault();
+                const draggedIndex = e.dataTransfer.getData('text/plain');
+                const draggedEl = ul.children[draggedIndex];
+                ul.insertBefore(draggedEl, index < draggedIndex ? li : li.nextSibling);
+                Array.from(ul.children).forEach((li, i) => li.dataset.index = i);
+            });
+
+            ul.appendChild(li);
         });
-
-        activityBox.appendChild(list);
 
         const checkBtn = document.createElement('button');
         checkBtn.textContent = 'Verificar';
+        checkBtn.className = 'btn-check';
         checkBtn.addEventListener('click', () => {
-            const userOrder = Array.from(list.children).map(li => li.textContent);
-            const isCorrect = JSON.stringify(userOrder) === JSON.stringify(activity.correct_answer);
-
-            const feedback = document.createElement('p');
-            feedback.className = 'feedback';
-            if (isCorrect) {
-                feedback.textContent = '✅ ¡Correcto!';
-                correctCount++;
-            } else {
-                feedback.textContent = `❌ Incorrecto. ${activity.explanation || 'Revisa el orden correcto.'}`;
-            }
-
-            checkBtn.disabled = true;
-            list.querySelectorAll('li').forEach(li => li.draggable = false);
-
+            const userAnswer = Array.from(ul.children).map(li => li.textContent);
+            const correct = JSON.stringify(userAnswer) === JSON.stringify(activity.correct_answer);
+            showFeedback(correct, activity.explanation, ul);
+            if (correct) correctCount++;
             nextBtn.disabled = false;
             nextBtn.classList.remove('first-back-btn');
-            activityBox.appendChild(feedback);
         });
 
+        activityBox.appendChild(ul);
         activityBox.appendChild(checkBtn);
-
     } else {
-        activityBox.innerHTML = `<p>Tipo de actividad no soportado: ${activity.type}</p>`;
+        const notSupported = document.createElement('p');
+        notSupported.textContent = 'Tipo de actividad no soportado.';
+        activityBox.appendChild(notSupported);
     }
 
     contentWrapper.appendChild(activityBox);
 }
 
-function validateMultipleChoice(button, selected, activity) {
+function validateAnswer(button, selected, activity) {
     const correct = activity.correct_answer[0];
     const isCorrect = selected === correct;
 
@@ -188,26 +169,103 @@ function validateMultipleChoice(button, selected, activity) {
     feedback.className = 'feedback';
     feedback.textContent = isCorrect
         ? '✅ ¡Respuesta correcta!'
-        : `❌ Incorrecto. ${activity.explanation || 'La respuesta correcta era: ' + correct}`;
+        : `❌ ¡Respuesta incorrecta! ${activity.explanation || 'Respuesta correcta: ' + correct}`;
 
     if (isCorrect) correctCount++;
     button.parentElement.appendChild(feedback);
-    button.parentElement.querySelectorAll('button').forEach(btn => btn.disabled = true);
+
+    const allBtns = button.parentElement.querySelectorAll('button');
+    allBtns.forEach(btn => btn.disabled = true);
 
     nextBtn.disabled = false;
     nextBtn.classList.remove('first-back-btn');
 }
 
-function showSummary() {
+function showFeedback(isCorrect, explanation, container) {
+    const p = document.createElement('p');
+    p.className = 'feedback';
+    p.textContent = isCorrect
+        ? '✅ ¡Respuesta correcta!'
+        : `❌ ¡Respuesta incorrecta! ${explanation || ''}`;
+    p.style.color = isCorrect ? 'green' : 'red';
+    container.parentElement.appendChild(p);
+}
+
+async function saveLessonProgress() {
+    const totalPoints = activities.reduce((acc, act) => acc + act.points, 0);
+    const earnedPoints = Math.round((correctCount / activities.length) * totalPoints);
+
+    // Verificar si ya hay una entrada
+    const { data: existing, error } = await supabase
+        .from('completed_lessons')
+        .select('*')
+        .eq('user_id', currentUser.id)
+        .eq('lesson_id', currentLessonId)
+        .single();
+
+    if (!existing) {
+        await supabase.from('completed_lessons').insert({
+            user_id: currentUser.id,
+            lesson_id: currentLessonId,
+            score: earnedPoints
+        });
+    } else if (existing.score < earnedPoints) {
+        await supabase
+            .from('completed_lessons')
+            .update({ score: earnedPoints })
+            .eq('user_id', currentUser.id)
+            .eq('lesson_id', currentLessonId);
+    }
+
+    // Actualizar progreso por módulo
+    const { data: allLessons } = await supabase
+        .from('lessons')
+        .select('id')
+        .eq('module_name', currentLessonModule);
+
+    const { data: completed } = await supabase
+        .from('completed_lessons')
+        .select('lesson_id')
+        .eq('user_id', currentUser.id);
+
+    const completedInModule = completed.filter(c =>
+        allLessons.some(l => l.id === c.lesson_id)
+    ).length;
+
+    const { data: progressRow } = await supabase
+        .from('lesson_progress')
+        .select('*')
+        .eq('user_id', currentUser.id)
+        .eq('module_name', currentLessonModule)
+        .single();
+
+    if (!progressRow) {
+        await supabase.from('lesson_progress').insert({
+            user_id: currentUser.id,
+            module_name: currentLessonModule,
+            lessons_completed: completedInModule
+        });
+    } else {
+        await supabase
+            .from('lesson_progress')
+            .update({ lessons_completed: completedInModule })
+            .eq('user_id', currentUser.id)
+            .eq('module_name', currentLessonModule);
+    }
+
+    showSummary(earnedPoints);
+}
+
+function showSummary(score) {
     contentWrapper.innerHTML = `
         <div class="summary-card">
-            <h2>🎉 ¡Lección completada!</h2>
+            <h2>Lección completada</h2>
             <p>Respondiste correctamente ${correctCount} de ${activities.length} actividades.</p>
-            <p>${correctCount >= activities.length * 0.7 ? '¡Felicidades!' : '¡Sigue practicando!'}</p>
-            <button class="main-lessons-tests__btn-nav" onclick="window.location.href='../html/lessons.html'">
-                Volver a las lecciones
-            </button>
+            <p>Puntaje obtenido: ${score} puntos.</p>
+            <a href="../html/lessons.html" class="main-lessons-tests__btn-nav">Volver a las lecciones</a>
         </div>
     `;
-    navButtons.style.display = 'none';
+
+    // Ocultar botones previos
+    lessonContentContainer.querySelector('.main-lessons-tests__btn-nav-container').style.display = 'none';
 }
