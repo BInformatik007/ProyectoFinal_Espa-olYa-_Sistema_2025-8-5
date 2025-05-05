@@ -60,8 +60,8 @@ export async function loadStudents() {
                 <td>${user.enrollment}</td>
                 <td>${user.first_name} ${user.last_name}</td>
                 <td>${user.email}</td>
-                <td>${stats.total_lessons} lecciones</td>
                 <td>${stats.total_points}</td>
+                <td>${stats.total_lessons} lecciones</td>
             </tr>
         `;
     });
