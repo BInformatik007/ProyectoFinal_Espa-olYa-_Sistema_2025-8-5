@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/LP_Esp/css/global.css">
-    <link rel="stylesheet" href="/LP_Esp/css/font.css">
-    <link rel="stylesheet" href="/LP_Esp/css/header&footer.css">
-    <link rel="stylesheet" href="/LP_Esp/css/profile.css">
-    <link rel="icon" href="/LP_Esp/media/imgs_Login/logo-pestaña.png" type="image/png">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/font.css">
+    <link rel="stylesheet" href="../css/header&footer.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="icon" href="../media/imgs_Login/logo-pestaña.png" type="image/png">
     <title>EspañolYa</title>
 </head>
 <body>
@@ -49,7 +49,7 @@
                     </div>
                     <div class="profile__text-content-container">
                         <h2 class="profile__user-name">404</h2>
-                        <p class="profile__user-level"></p>
+                        <p class="profile__user-level">Nivel X</p>
                     </div>
                     <div class="profile__data-counting-container">
 
@@ -74,7 +74,11 @@
                     <div class="profile__buttons-container">
                         <button class="profile__btn profile__edit-profile" id="profile__edit-profile">Editar perfil</button>
                         <button class="profile__btn profile__config-btn" id="profile__config-btn">Ajustes</button>
+                    
+                        <!-- Botón exclusivo para profesores -->
+                        <button class="profile__btn hidden" id="go-to-teacher-panel">Ir al Panel del Profesor</button>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -134,9 +138,7 @@
             <div class="profile__tab-content active" id="progreso">
                 <div class="profile__top-content">
                     <h3 class="profile__tab-title">Tu progreso</h3>
-                    <button type="button" class="profile__lessons-btn">
-                        <a href="../html/lessons.html" class="profile__lessons-link">Completar lecciones</a>
-                    </button>
+                    <button type="button" class="profile__level-test-btn">Test de Nivel</button>
                 </div>
 
 <!-- -------------------- PROGRESS TIMELINE PROFILE SECTION -------------------- -->
@@ -194,7 +196,7 @@
                             <p class="profile__main-progress-text"></p>
                         </div>
                         <div class="profile__main-progress-bar-container">
-                            <div class="profile__main-progress-bar" style="width: 0%;"></div>
+                            <div class="profile__main-progress-bar" style="width: 100%;"></div>
                         </div>
 
                         <div class="profile__main-content-header">
@@ -202,7 +204,7 @@
                             <p class="profile__main-progress-text"></p>
                         </div>
                         <div class="profile__main-progress-bar-container">
-                            <div class="profile__main-progress-bar" style="width: 0%;"></div>
+                            <div class="profile__main-progress-bar" style="width: 40%;"></div>
                         </div>
 
                         <div class="profile__main-content-header">

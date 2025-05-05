@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (!session) {
         // Redirigir al login si no hay sesión
-        window.location.href = '/LP_Esp/html/login.html';
+        window.location.href = '../html/login.html';
         return;
     }
 });

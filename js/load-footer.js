@@ -4,7 +4,7 @@
 function loadFooter() {
     // Intentar cargar desde diferentes rutas posibles
     const tryPaths = [
-      '/LP_Esp/html/footer.html',  // Ruta absoluta
+      '../html/footer.html',  // Ruta absoluta
       '../components/footer.html',       // Ruta relativa desde /html/
       'components/footer.html'           // Ruta alternativa
     ];
@@ -59,10 +59,10 @@ function loadFooter() {
       <footer class="footer" style="text-align:center;padding:20px;">
         © ${new Date().getFullYear()} EspañolYa - Todos los derechos reservados
         <div style="margin-top:10px;">
-          <a href="/LP_Esp/html/index.html">Inicio</a> | 
-          <a href="/LP_Esp/html/lessons.html">Lecciones</a> | 
-          <a href="/LP_Esp/html/challenge.html">Desafíos</a> | 
-          <a href="/LP_Esp/html/profile.html">Perfil</a>
+          <a href="../html/index.html">Inicio</a> | 
+          <a href="../html/lessons.html">Lecciones</a> | 
+          <a href="../html/challenge.html">Desafíos</a> | 
+          <a href="../html/profile.html">Perfil</a>
         </div>
       </footer>
     </section>`;

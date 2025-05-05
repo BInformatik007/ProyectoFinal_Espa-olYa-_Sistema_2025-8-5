@@ -152,3 +152,123 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// ------------------ Barras de Progreso ------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const progressBars = document.querySelectorAll('.profile__main-progress-bar');
+    const progressTexts = document.querySelectorAll('.profile__main-progress-text');
+
+    progressBars.forEach((bar, index) => {
+        const width = bar.style.width;
+        const numericValue = parseInt(width, 10) || 0;
+
+        if (progressTexts[index]) {
+            progressTexts[index].textContent = `${numericValue}% completado`;
+        }
+    });
+});
+
+// ------------------ Línea de Tiempo ------------------
+document.addEventListener("DOMContentLoaded", () => {
+    const progressBars = document.querySelectorAll('.profile__main-progress-bar');
+    const progressCircles = document.querySelectorAll('.profile__progress-circle');
+    const lineFills = document.querySelectorAll('.profile__progress-line-fill');
+    const progressTexts = document.querySelectorAll('.profile__main-progress-text');
+
+    progressBars.forEach((bar, index) => {
+        const width = bar.style.width;
+        const numericValue = parseInt(width, 10) || 0;
+
+        if (progressTexts[index]) {
+            progressTexts[index].textContent = `${numericValue}% completado`;
+        }
+
+        if (index === 0 && progressCircles[0]) {
+            progressCircles[0].classList.add('active');
+        }
+
+        if (lineFills[index]) {
+            lineFills[index].style.height = `${numericValue}%`;
+        }
+
+        if (numericValue === 100 && progressCircles[index + 1]) {
+            progressCircles[index + 1].classList.add('active');
+        }
+    });
+});
+
+// ------------------ Layouts ------------------
+document.getElementById('profile__edit-profile').addEventListener('click', () => {
+    document.getElementById('edit-profile-modal').classList.remove('hidden');
+});
+
+document.getElementById('close-edit-profile').addEventListener('click', () => {
+    document.getElementById('edit-profile-modal').classList.add('hidden');
+});
+
+document.getElementById('profile__config-btn').addEventListener('click', () => {
+    document.getElementById('settings-modal').classList.remove('hidden');
+});
+
+document.getElementById('close-settings').addEventListener('click', () => {
+    document.getElementById('settings-modal').classList.add('hidden');
+});
+
+// ------------------ Cerrar sesión ------------------
+document.getElementById('logout').addEventListener('click', async () => {
+    const { error } = await supabase.auth.signOut();
+
+    localStorage.removeItem('user_role');
+
+    if (error) {
+        alert('Error al cerrar sesión: ' + error.message);
+    } else {
+        window.location.href = '../html/login.html';
+    }
+});
+
+
+// Verificación de sesión activa
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+        // Redirigir al login si no hay sesión
+        window.location.href = '../html/login.html';
+        return;
+    }
+});
+
+// ------------------ Mostrar botón solo a profesores ------------------
+document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session || !session.user) return;
+
+    const userId = session.user.id;
+
+    const { data: user, error: userError } = await supabase
+        .from('users')
+        .select('role_id')
+        .eq('id', userId)
+        .single();
+
+    if (userError || !user) return;
+
+    const { data: role, error: roleError } = await supabase
+        .from('roles')
+        .select('name')
+        .eq('id', user.role_id)
+        .single();
+
+    if (roleError || !role) return;
+
+    if (role.name === 'teacher') {
+        const teacherPanelBtn = document.getElementById('go-to-teacher-panel');
+        if (teacherPanelBtn) {
+            teacherPanelBtn.classList.remove('hidden');
+            teacherPanelBtn.addEventListener('click', () => {
+                window.location.href = '../html/teacher-panel.html';
+            });
+        }
+    }
+});

@@ -16,7 +16,7 @@ const interval = setInterval(() => {
 // Redirección manual o automática
 function redirectToLogin() {
 // Reemplaza en lugar de guardar en historial
-    window.location.replace("/LP_Esp/html/login.html");
+    window.location.replace("../html/login.html");
 }
 
 loginBtn.addEventListener("click", function (e) {

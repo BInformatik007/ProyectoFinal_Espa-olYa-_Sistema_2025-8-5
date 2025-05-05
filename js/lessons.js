@@ -93,7 +93,7 @@ document.querySelector('.main__filter-input').addEventListener('keypress', funct
 document.addEventListener("DOMContentLoaded", async () => {
     const { data: { session } } = await supabase.auth.getSession();
     if (!session) {
-        window.location.href = '/LP_Esp/html/login.html';
+        window.location.href = '../html/login.html';
         return;
     }
 
