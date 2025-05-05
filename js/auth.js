@@ -6,7 +6,7 @@ export async function requireRole(allowedRoles) {
         const { data: { session }, error: sessionError } = await supabase.auth.getSession();
         if (sessionError || !session?.user) {
             console.error("Error obteniendo sesión:", sessionError);
-            window.location.href = '../html/login.html';
+            window.location.href = '../index.html';
             return null;
         }
 
