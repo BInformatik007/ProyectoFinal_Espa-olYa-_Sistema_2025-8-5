@@ -579,3 +579,84 @@
     color: #666;
     margin-top: 5px;
 }
+
+@media (max-width: 1024px) {
+    .sections-container {
+      margin: 60px 40px;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .profile__container {
+      width: 80vw;
+      margin-bottom: 30px;
+    }
+  
+    .profile__content-container {
+      width: 100%;
+    }
+  
+    .profile__tabs-container {
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .sections-container {
+      margin: 40px 20px;
+    }
+  
+    .profile__container {
+      width: 95vw;
+      padding: 20px 10px;
+    }
+  
+    .profile__user-name {
+      font-size: 1.2rem;
+    }
+  
+    .profile__title-data {
+      font-size: 0.7rem;
+    }
+  
+    .profile__btn {
+      font-size: 0.9rem;
+    }
+  
+    .profile__tab-title {
+      font-size: 1.2rem;
+    }
+  
+    .profile__statistics-boxes-container,
+    .profile__insignia-boxes-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 768px) {
+    .profile__main-wrapper {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+  
+    .profile__progress-timeline {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+  
+    .profile__progress-connector {
+      flex-direction: row;
+      height: auto;
+      width: 40px;
+    }
+  
+    .profile__progress-line,
+    .profile__progress-line-fill {
+      height: 2px;
+      width: 100%;
+    }
+  }
+    
