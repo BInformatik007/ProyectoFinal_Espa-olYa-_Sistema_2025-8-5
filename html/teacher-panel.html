@@ -10,6 +10,26 @@
     <link rel="stylesheet" href="../css/teacher-panel.css">
 </head>
 <body>
+    <section class="sections-group header-section">
+        <header class="header">
+            <input type="checkbox" class="header__menu-checkbox" id="open-menu">
+            <label for="open-menu" class="header__menu-icon" role="button">☰</label>
+            <div class="header__logo-container">
+                <a href="../html/index.html"><img src="../media/imgs_Login/icono.png" alt="Logo" class="header__logo"></a>
+            </div>
+            <nav class="header__nav">
+                <ul class="header__ul">
+                    <li class="header__li"><a href="../html/index.html" class="header__link">Inicio</a></li>
+                    <li class="header__li"><a href="../html/lessons.html" class="header__link">Lecciones</a></li>
+                    <!-- <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li> -->
+                    <li class="header__li"><a href="../html/resources.html" class="header__link">Recursos</a></li>
+                </ul>
+            </nav>
+            <div class="header__account-btn">
+                <li class="header__li"><a href="../html/profile.html" class="header__account-link header__account-link-singup">Perfil</a></li>
+            </div>
+        </header>
+    </section>
     <div class="panel-container">
         <div class="panel__header">
             <h1 class="panel__title">Panel Administrativo</h1>
@@ -22,7 +42,7 @@
                     <a href="#" class="panel__btn-link">Ver Estudiantes</a>
                 </button>
                 <button class="panel__btn">
-                    <a href="../index.html" class="panel__btn-link">Volver al inicio</a>
+                    <a href="../html/index.html" class="panel__btn-link">Volver al inicio</a>
                 </button>
             </div>
         </div>
@@ -75,5 +95,6 @@
     </div>
 
     <script type="module" src="../js/teacher-panel.js"></script>
+    <script src="../js/load-footer.js"></script>
 </body>
 </html>
