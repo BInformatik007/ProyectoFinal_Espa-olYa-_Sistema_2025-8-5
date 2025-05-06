@@ -321,7 +321,7 @@
         height: 40vh;
         margin: auto;
         text-align: center;
-        justify-content: space-around;
+        justify-content: space-between;
     }
 
     .footer__box-logo{

@@ -1,12 +1,6 @@
+/* -------------------- MAIN LESSONS TESTS SECTION -------------------- */
 
- /* -------------------- MAIN LESSONS TESTS SECTION --------------------  */
-
-
-
- /* -------------------- PREVIEW SECTION --------------------  */
-
-
- .main-lessons-tests-section{
+.main-lessons-tests-section {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -14,7 +8,8 @@
     width: 100%;
 }
 
-.main-lessons-tests__preview-container, .main-lessons-tests__lesson-content-container{
+.main-lessons-tests__preview-container,
+.main-lessons-tests__lesson-content-container {
     margin-top: 60px;
     background-color: #fff;
     width: 60%;
@@ -24,23 +19,25 @@
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
-.main-lessons-tests__preview-content-container{
+.main-lessons-tests__preview-content-container {
     padding: 0 30px;
 }
 
-.main-lessons-tests__preview-title{
+.main-lessons-tests__preview-title {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 10px;
 }
 
-.main-lessons-tests__btn-nav-container{
+.main-lessons-tests__btn-nav-container {
     display: flex;
     justify-content: space-between;
     margin: 40px 50px 0;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-.main-lessons-tests__btn-nav{
+.main-lessons-tests__btn-nav {
     background-color: transparent;
     border: 2px solid #10b981;
     color: #10b981;
@@ -49,47 +46,47 @@
     border-radius: 10px;
     cursor: pointer;
     transform-origin: center;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
 }
 
-.main-lessons-tests__btn-nav:hover{
+.main-lessons-tests__btn-nav:hover {
     transform: scale(1.05);
     background-color: #10b981;
     color: #fff;
 }
 
-.main-lessons-tests__btn-nav-back{
+.main-lessons-tests__btn-nav-back {
     background-color: transparent;
     border: 2px solid #f9731699;
     color: #f9731699;
 }
 
-.main-lessons-tests__btn-nav-back:hover{
+.main-lessons-tests__btn-nav-back:hover {
     background-color: #f97316;
     color: #fff;
 }
 
-.first-back-btn{
+.first-back-btn {
     background-color: transparent;
     border: 2px solid #888;
     color: #888;
     cursor: default;
 }
 
-.first-back-btn:hover{
+.first-back-btn:hover {
     background-color: transparent;
     border: 2px solid #888;
     color: #888;
     transform: none;
 }
 
- /* -------------------- LESSONS CONTENT SECTION --------------------  */
+/* -------------------- LESSONS CONTENT SECTION -------------------- */
 
-.main-lessons-tests__lesson-content-container{
+.main-lessons-tests__lesson-content-container {
     display: none;
 }
 
-.activity-box{
+.activity-box {
     margin: 20px auto;
     display: flex;
     justify-content: center;
@@ -97,7 +94,7 @@
     flex-direction: column;
 }
 
-.option-btn{
+.option-btn {
     width: 50%;
     margin-top: 10px;
     padding: 8px;
@@ -107,46 +104,116 @@
     border-radius: 10px;
     cursor: pointer;
     transform-origin: center;
-    transition: all .2s ease-in-out;
+    transition: all 0.2s ease-in-out;
 }
 
-.option-btn:hover{
+.option-btn:hover {
     transform: scale(0.98);
     background-color: #10b981;
     color: #fff;
 }
 
-.question{
+.question {
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-.feedback{
+.feedback {
     margin-top: 20px;
     font-weight: bold;
     font-size: 1.1rem;
 }
 
-.summary-card{
+.summary-card {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.summary-title{
+.summary-title {
     font-size: 2rem;
     font-weight: 700;
     margin-bottom: 20px;
 }
 
-.summary-right-not{
+.summary-right-not {
     font-size: 1.3rem;
     font-weight: 600;
     margin-top: 10px;
 }
 
-.main-lessons-tests__btn-nav{
+.main-lessons-tests__btn-nav {
     margin-top: 50px;
+}
+
+/* -------------------- RESPONSIVE -------------------- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+    .main-lessons-tests__preview-container,
+    .main-lessons-tests__lesson-content-container {
+        width: 80%;
+        padding: 30px;
+    }
+
+    .main-lessons-tests__preview-title {
+        font-size: 2rem;
+    }
+
+    .main-lessons-tests__btn-nav {
+        padding: 10px 30px;
+    }
+}
+
+/* Móviles (≤768px) */
+@media (max-width: 768px) {
+    .main-lessons-tests-section {
+        height: auto;
+        padding: 40px 0;
+    }
+
+    .main-lessons-tests__preview-container,
+    .main-lessons-tests__lesson-content-container {
+        width: 90%;
+        padding: 25px;
+    }
+
+    .main-lessons-tests__preview-title {
+        font-size: 1.6rem;
+    }
+
+    .main-lessons-tests__btn-nav-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin: 30px 0 0;
+    }
+
+    .main-lessons-tests__btn-nav {
+        width: 100%;
+        max-width: 250px;
+        padding: 10px 0;
+    }
+
+    .option-btn {
+        width: 100%;
+    }
+
+    .question {
+        font-size: 1rem;
+    }
+
+    .feedback {
+        font-size: 1rem;
+    }
+
+    .summary-title {
+        font-size: 1.5rem;
+    }
+
+    .summary-right-not {
+        font-size: 1.1rem;
+    }
 }
