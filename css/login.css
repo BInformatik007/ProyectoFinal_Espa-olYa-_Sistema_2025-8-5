@@ -11,7 +11,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(/LP_Esp/media/imgs_Login/fondo\ pag.png);
+  background-image: url(../media/imgs_Login/fondo\ pag.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -113,6 +113,7 @@ h1 {
   font-size: clamp(1.5rem, 4vw, 1.875rem);
   font-weight: bold;
   margin-bottom: 1rem;
+  color: #fff;
 }
 
 p {
