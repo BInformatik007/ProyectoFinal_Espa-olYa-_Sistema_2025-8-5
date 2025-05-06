@@ -76,3 +76,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         progressText.textContent = `${progressValue}% completado`;
     });
 });
+

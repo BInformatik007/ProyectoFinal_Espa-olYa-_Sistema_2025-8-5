@@ -72,6 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await actualizarPuntosLeccionesYNivel(userId);
     await actualizarProgresoPorModulo(userId);
     await cargarInsignias(userId);
+
 });
 
 // ------------------ Puntos, Lecciones y Nivel ------------------

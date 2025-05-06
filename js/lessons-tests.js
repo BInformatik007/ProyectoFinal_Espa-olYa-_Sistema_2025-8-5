@@ -281,3 +281,21 @@ function showSummary(score) {
     // Ocultar botones previos
     lessonContentContainer.querySelector('.main-lessons-tests__btn-nav-container').style.display = 'none';
 }
+
+
+
+
+// DARK MODE SECTION
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+document.getElementById('toggle-dark-mode').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+});
