@@ -394,3 +394,70 @@ async function mostrarInsignias(userId) {
         container.appendChild(div);
     });
 }
+
+document.getElementById('trigger-file-upload').addEventListener('click', () => {
+    document.getElementById('new-profile-pic').click();
+});
+
+document.getElementById('save-profile').addEventListener('click', async () => {
+    const fileInput = document.getElementById('new-profile-pic');
+    const file = fileInput.files[0];
+
+    if (!file) {
+        alert('Selecciona una imagen primero.');
+        return;
+    }
+
+    const {
+        data: { session },
+        error: sessionError
+    } = await supabase.auth.getSession();
+
+    if (!session || sessionError) {
+        console.error('No hay sesión activa.');
+        return;
+    }
+
+    const userId = session.user.id;
+    const fileExt = file.name.split('.').pop();
+    const fileName = `${userId}.${fileExt}`;
+    const filePath = `${fileName}`;
+
+    // Subir imagen al bucket
+    const { error: uploadError } = await supabase.storage
+        .from('avatars')
+        .upload(filePath, file, {
+            upsert: true,
+            contentType: file.type
+        });
+
+    if (uploadError) {
+        console.error('Error al subir la imagen:', uploadError.message);
+        alert('Error al subir la imagen.');
+        return;
+    }
+
+    // Obtener URL pública
+    const { data: publicUrlData } = supabase.storage
+        .from('avatars')
+        .getPublicUrl(filePath);
+
+    const publicUrl = publicUrlData.publicUrl;
+
+    // Actualizar URL en tabla users
+    const { error: updateError } = await supabase
+        .from('users')
+        .update({ profile_picture: publicUrl })
+        .eq('id', userId);
+
+    if (updateError) {
+        console.error('Error al actualizar perfil:', updateError.message);
+        alert('Error al guardar la imagen de perfil.');
+        return;
+    }
+
+    // Mostrar la nueva imagen en el perfil
+    document.querySelector('.profile__profile-img').src = publicUrl;
+
+    alert('Imagen de perfil actualizada con éxito.');
+});

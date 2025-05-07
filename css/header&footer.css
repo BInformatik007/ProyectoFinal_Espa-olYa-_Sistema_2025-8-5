@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 100;
@@ -285,7 +285,7 @@ section.footer-section {
 @media screen and (max-width: 730px){
 
     .header{
-        justify-content: space-around;
+        justify-content: left;
     }
 
     .header__logo{
@@ -300,10 +300,6 @@ section.footer-section {
         right: 20px;
         padding: 7px 10px;
         border-radius: 50%;
-    }
-
-    .header__menu-icon{
-        display: block;
     }
 
     .header__nav{
@@ -321,7 +317,6 @@ section.footer-section {
     }
 
     .header__ul{
-        flex-direction: column;
         height: 40vh;
         margin: auto;
         text-align: center;
@@ -353,10 +348,6 @@ section.footer-section {
         right: 10px;
     }
 
-    .header{
-        justify-content: center;
-    }
-
     .header__logo{
         font-size: 16px;
         margin-right: 10px;
@@ -373,10 +364,6 @@ section.footer-section {
 
     .header__menu-icon{
         font-size: 12px;
-    }
-
-    .header{
-        justify-content: left;
     }
     
     .footer__box-map{
