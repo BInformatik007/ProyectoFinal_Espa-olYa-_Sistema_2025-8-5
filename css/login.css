@@ -10,11 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-<<<<<<< HEAD
   background-image: url(../media/imgs_Login/fondo\ pag.png);
-=======
-  background-image: url(/media/imgs_Login/fondo\ pag.png);
->>>>>>> 835e4fdc1785d721bcebd460ac05517ff084611c
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
