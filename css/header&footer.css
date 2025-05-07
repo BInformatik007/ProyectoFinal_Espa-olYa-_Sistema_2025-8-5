@@ -73,16 +73,6 @@
     font-weight: 600;
 }
 
-.header__account-link-login{
-    color: #10b981;
-    transition: all 0.2s ease;
-}
-
-.header__account-link-login:hover{
-    background-color: #58cc021a;
-    border-radius: 5px;
-}
-
 .header__account-link-singup{
     background-color: #10b981;
     color: #fff;

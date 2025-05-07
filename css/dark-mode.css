@@ -72,3 +72,11 @@ body.dark-mode .profile__insignia-box {
 body.dark-mode .layout__title, body.dark-mode .main__module-title, body.dark-mode .main__module-cards-title {
     color: #fff;
 }
+
+body.dark-mode .header__account-link-singup, body.dark-mode .layout__btn-link {
+    background-color: #10b981;
+}
+
+body.dark-mode .main-lessons-tests__preview-container, body.dark-mode .main-lessons-tests__lesson-content-container {
+    background-color: #1a1a1a;
+}
