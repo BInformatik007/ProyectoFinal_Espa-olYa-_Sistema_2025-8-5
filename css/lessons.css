@@ -21,11 +21,13 @@
     gap: 10px;
 }
 
-.main__lessons-category-select {
+.main__lessons-category-select, .main__lessons-category-option {
     width: 30%;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    background-color: #fff;
+    color: #222;
 }
 
 .main__filter-input {
@@ -80,7 +82,6 @@
 .main__lessons-cards {
     background-color: #fff;
     border-radius: 10px;
-    box-shadow: 0 5px 5px 0 #ddd;
     cursor: pointer;
     transform-origin: center;
     transition: transform 0.3s ease;

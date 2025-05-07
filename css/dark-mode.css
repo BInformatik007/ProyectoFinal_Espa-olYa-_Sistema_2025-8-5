@@ -1,13 +1,19 @@
+/* DARK MODE */
+
 body.dark-mode {
     background-color: #222;
     color: #fff;
 }
 
-body.dark-mode h1, h2, h3, h4, h5, h6 {
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3, body.dark-mode h4, body.dark-mode h5, body.dark-mode h6, body.dark-mode .header__link {
     color: #fff;
 }
 
-body.dark-mode header, a, .footer-section {
+body.dark-mode .header__logo-container a {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode header, body.dark-mode a, body.dark-mode section.footer-section {
     background-color: #1a1a1a;
     color: #fff;
 }
@@ -16,6 +22,53 @@ body.dark-mode .main__module-cards {
     background-color: #1a1a1a;
 }
 
-body.dark-mode .main__module-cards-progress-container {
-    background: #444;
+body.dark-mode .main__module-cards-progress-container, body.dark-mode .profile__main-progress-bar-container {
+    background-color: #444;
+}
+
+body.dark-mode .main__filter-input, body.dark-mode .main__lessons-category-select, body.dark-mode .main__lessons-category-option{
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+body.dark-mode .main__lessons-cards {
+    background-color: #1a1a1a;
+    box-shadow: none;
+}
+
+body.dark-mode .profile__container {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .profile__profile-img {
+    color: #fff;
+}
+
+body.dark-mode .profile__tabs-nav, body.dark-mode .profile__tabs-content {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .profile__tab-button{
+    color: #fff;
+}
+
+body.dark-mode .profile__footer-content {
+    background-color: #222;
+}
+
+body.dark-mode .profile__modal-content {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .theme-toggle-text {
+    color: #fff;
+}
+
+body.dark-mode .profile__insignia-box {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .layout__title, body.dark-mode .main__module-title, body.dark-mode .main__module-cards-title {
+    color: #fff;
 }
