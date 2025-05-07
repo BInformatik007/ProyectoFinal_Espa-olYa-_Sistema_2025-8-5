@@ -1,16 +1,19 @@
-body{
+body {
+    margin: 0;
+    padding: 100px 20px 40px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
+    background-color: #f8f8f8;
 }
 
 .panel-container {
-    min-width: 1200px;
+    width: 100%;
+    max-width: 1200px;
     background-color: #ffffff;
-    padding: 2rem 3rem;
+    padding: 2rem 1.5rem;
     border-radius: 12px;
     box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    box-sizing: border-box;
 }
 
 .panel__title, .panel__description {
@@ -20,17 +23,19 @@ body{
     text-align: center;
 }
 
-.panel__description{
+.panel__description {
     font-size: 1.2rem;
     font-weight: 500;
 }
 
-.panel__btn-container{
+.panel__btn-container {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
-.panel__btn{
+.panel__btn {
     background-color: #10b981;
     color: #fff;
     font-weight: 600;
@@ -39,21 +44,27 @@ body{
     cursor: pointer;
     transition: all 0.3s ease;
     margin: 20px 0;
+    padding: 10px 20px;
+    flex: 1;
+    min-width: 150px;
 }
 
 .panel__btn:hover {
     background-color: #059669;
 }
 
-.panel__btn-link{
+.panel__btn-link {
     display: flex;
     color: #fff;
-    padding: 10px 20px;
+    justify-content: center;
+    width: 100%;
 }
 
 table {
     width: 100%;
     margin-top: 1rem;
+    overflow-x: auto;
+    display: block;
 }
 
 th, td {
@@ -101,11 +112,97 @@ tr:hover {
     color: #333;
 }
 
-.modal-content input, .modal-content select, .modal-content textarea {
+.modal-content input,
+.modal-content select,
+.modal-content textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 1rem;
+}
+
+/* ----------- Media Queries ----------- */
+
+@media screen and (max-width: 768px) {
+    .panel__btn-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .panel__title {
+        font-size: 1.5rem;
+    }
+
+    .panel__description {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    body {
+        padding: 80px 10px 30px;
+    }
+
+    .panel-container {
+        padding: 1.5rem 1rem;
+    }
+
+    .panel__title {
+        font-size: 1.3rem;
+    }
+
+    .panel__description {
+        font-size: 0.95rem;
+    }
+
+    .panel__btn {
+        font-size: 0.95rem;
+        padding: 10px;
+    }
+
+    th, td {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+    }
+}
+/* Contenedor de scroll horizontal automático */
+@media screen and (max-width: 768px) {
+    #students-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    #students-table thead,
+    #students-table tbody,
+    #students-table tr,
+    #students-table th,
+    #students-table td {
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    #students-table tr {
+        display: table-row;
+        width: 100%;
+    }
+}
+
+/* Alternativa más simple y segura para tablas responsive */
+@media screen and (max-width: 768px) {
+    #students-table {
+        display: block;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    #students-table table {
+        min-width: 600px;
+    }
 }
