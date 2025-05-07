@@ -2,12 +2,14 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Panel del Profesor - EspañolYa!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/global.css">
     <link rel="stylesheet" href="../css/header&footer.css">
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/teacher-panel.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
+    <link rel="icon" href="../media/imgs_Login/logo-pestaña.png" type="image/png">
+    <title>Panel del Profesor - EspañolYa!</title>
 </head>
 <body>
     <section class="sections-group header-section">
@@ -62,40 +64,7 @@
         </div>
     </div>
 
-    <!-- Modal para editar estudiante -->
-    <div class="modal hidden" id="edit-student-modal">
-        <div class="modal-content">
-            <h3>✏️ Editar Estudiante</h3>
-            <input type="text" id="edit-first-name" placeholder="Nombre">
-            <input type="text" id="edit-last-name" placeholder="Apellido">
-            <input type="email" id="edit-email" placeholder="Correo Electrónico">
-            <input type="password" id="edit-password" placeholder="Nueva Contraseña (opcional)">
-            <select id="edit-role">
-                <option value="1">Estudiante</option>
-                <option value="2">Profesor</option>
-                <option value="3">Administrador</option>
-            </select>
-            <button onclick="deactivateStudent()" style="background-color: #b71c1c;">🚫 Desactivar Cuenta</button>
-            <div style="display: flex; justify-content: space-between;">
-                <button onclick="saveStudentChanges()">Guardar</button>
-                <button onclick="closeEditModal()" style="background-color: #ccc; color: black;">Cancelar</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para enviar mensaje -->
-    <div class="modal hidden" id="send-message-modal">
-        <div class="modal-content">
-            <h3>📨 Enviar mensaje al estudiante</h3>
-            <textarea id="message-content" placeholder="Escribe tu mensaje..." rows="5"></textarea>
-            <div style="display: flex; justify-content: space-between;">
-                <button onclick="sendMessageToStudent()">Enviar</button>
-                <button onclick="closeMessageModal()" style="background-color: #ccc; color: black;">Cancelar</button>
-            </div>
-        </div>
-    </div>
-
     <script type="module" src="../js/teacher-panel.js"></script>
-    
+    <script src="../js/theme.js"></script>
 </body>
 </html>

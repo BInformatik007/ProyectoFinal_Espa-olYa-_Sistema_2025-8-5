@@ -36,11 +36,11 @@
   
   .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 80px auto;
     padding: var(--spacing-lg);
   }
   
-  header {
+  .resource-title-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -183,6 +183,7 @@
     border-radius: var(--border-radius);
     font-size: 1rem;
     transition: border-color var(--transition-fast);
+    border: none;
   }
   
   #searchInput:focus {

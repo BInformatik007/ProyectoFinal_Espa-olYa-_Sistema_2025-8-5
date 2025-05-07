@@ -42,6 +42,7 @@ body {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    transform-origin: center;
     transition: all 0.3s ease;
     margin: 20px 0;
     padding: 10px 20px;
@@ -50,7 +51,7 @@ body {
 }
 
 .panel__btn:hover {
-    background-color: #059669;
+    transform: scale(1.02);
 }
 
 .panel__btn-link {
@@ -122,6 +123,8 @@ tr:hover {
     border-radius: 6px;
     font-size: 1rem;
 }
+
+
 
 /* ----------- Media Queries ----------- */
 
