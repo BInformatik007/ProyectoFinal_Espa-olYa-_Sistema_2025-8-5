@@ -6,7 +6,7 @@
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    width: 100vw;
+    width: 100%;
     top: 0;
     left: 0;
     z-index: 100;
@@ -71,16 +71,6 @@
     margin: 0 5px;
     padding: 8px 16px;
     font-weight: 600;
-}
-
-.header__account-link-login{
-    color: #10b981;
-    transition: all 0.2s ease;
-}
-
-.header__account-link-login:hover{
-    background-color: #58cc021a;
-    border-radius: 5px;
 }
 
 .header__account-link-singup{
@@ -295,7 +285,7 @@ section.footer-section {
 @media screen and (max-width: 730px){
 
     .header{
-        justify-content: space-around;
+        justify-content: left;
     }
 
     .header__logo{
@@ -363,10 +353,6 @@ section.footer-section {
         right: 10px;
     }
 
-    .header{
-        justify-content: center;
-    }
-
     .header__logo{
         font-size: 16px;
         margin-right: 10px;
@@ -383,10 +369,6 @@ section.footer-section {
 
     .header__menu-icon{
         font-size: 12px;
-    }
-
-    .header{
-        justify-content: left;
     }
     
     .footer__box-map{

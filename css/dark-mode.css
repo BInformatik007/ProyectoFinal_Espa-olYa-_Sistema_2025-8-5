@@ -69,6 +69,32 @@ body.dark-mode .profile__insignia-box {
     background-color: #1a1a1a;
 }
 
-body.dark-mode .layout__title, body.dark-mode .main__module-title, body.dark-mode .main__module-cards-title {
+body.dark-mode .layout__title, body.dark-mode .main__module-title, body.dark-mode .main__module-cards-title, body.dark-mode td {
     color: #fff;
+}
+
+body.dark-mode .header__account-link-singup, body.dark-mode .layout__btn-link {
+    background-color: #10b981;
+}
+
+body.dark-mode .main-lessons-tests__preview-container, body.dark-mode .main-lessons-tests__lesson-content-container, body.dark-mode #searchInput, body.dark-mode .panel-container {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .panel__btn a {
+    background-color: #10b981;
+}
+
+@media screen and (max-width: 730px) {
+    body.dark-mode .header__nav {
+        background-color: #1a1a1a;
+    }
+
+    body.dark-mode .header__ul a {
+        color: #fff;
+    }
+
+    body.dark-mode .header__ul a:hover {
+        color: #10b981;
+    }
 }

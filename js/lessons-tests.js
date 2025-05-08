@@ -13,6 +13,7 @@ let currentLessonId = null;
 let currentLessonModule = null;
 let currentUser = null;
 let sessionStartTime = null;
+let answeredActivities = new Set();
 
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -60,8 +61,17 @@ document.getElementById('btn-siguiente').addEventListener('click', () => {
 });
 
 backButton.addEventListener('click', () => {
-    lessonContentContainer.style.display = 'none';
-    previewContainer.style.display = 'block';
+    if (currentActivity === 0) {
+        // Volver al preview si estamos en la primera actividad
+        lessonContentContainer.style.display = 'none';
+        previewContainer.style.display = 'block';
+    } else {
+        // Retroceder a la actividad anterior
+        currentActivity--;
+        showActivity();
+        nextBtn.disabled = true;
+        nextBtn.classList.add('first-back-btn');
+    }
 });
 
 nextBtn.addEventListener('click', () => {
@@ -174,7 +184,11 @@ function validateAnswer(button, selected, activity) {
         ? '✅ ¡Respuesta correcta!'
         : `❌ ¡Respuesta incorrecta! ${activity.explanation || 'Respuesta correcta: ' + correct}`;
 
-    if (isCorrect) correctCount++;
+        if (isCorrect && !answeredActivities.has(activity.id)) {
+            correctCount++;
+            answeredActivities.add(activity.id);
+        } 
+               
     button.parentElement.appendChild(feedback);
 
     const allBtns = button.parentElement.querySelectorAll('button');
