@@ -117,7 +117,7 @@ async function handleLogin(event) {
 
     alert('¡Inicio de sesión exitoso!');
     form.reset();
-    window.location.href = '../html/index.html';
+    window.location.href = '../html/index.html'; // Redirigir a la página principal
 }
 
 // -------------------- Eventos --------------------

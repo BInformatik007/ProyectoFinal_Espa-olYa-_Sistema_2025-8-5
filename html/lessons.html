@@ -7,34 +7,35 @@
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/header&footer.css">
     <link rel="stylesheet" href="../css/lessons.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="icon" href="../media/imgs_Login/logo-pestaña.png" type="image/png">
     <title>EspañolYa!</title>
 </head>
 <body>
 
 <!-- -------------------- HEADER SECTION -------------------- -->
-    <section class="sections-group header-section">
-        <header class="header">
-            <input type="checkbox" class="header__menu-checkbox" id="open-menu">
-            <label for="open-menu" class="header__menu-icon" role="button">☰</label>
-            <div class="header__logo-container">
-                <a href="../html/index.html"><img src="../media/imgs_Login/icono.png" alt="Logo" class="header__logo"></a>
-            </div>
-            <nav class="header__nav">
-                <ul class="header__ul">
-                    <li class="header__li"><a href="../html/index.html" class="header__link">Inicio</a></li>
-                    <li class="header__li"><a href="../html/lessons.html" class="header__link">Lecciones</a></li>
-                    <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li>
-                    <li class="header__li"><a href="../html/profile.html" class="header__link">Perfil</a></li>
-                </ul>
-            </nav>
-            <div class="header__account-btn">
-                <a href="../html/login.html" class="header__account-link header__account-link-login">Iniciar sesión</a>
-                <a href="../html/login.html" class="header__account-link header__account-link-singup">Registrarse</a>
-            </div>
-        </header>
-    </section>
-
+<section class="sections-group header-section">
+    <header class="header">
+        <input type="checkbox" class="header__menu-checkbox" id="open-menu">
+        <label for="open-menu" class="header__menu-icon" role="button">☰</label>
+        <div class="header__logo-container">
+            <a href="../html/index.html"><img src="../media/imgs_Login/icono.png" alt="Logo" class="header__logo"></a>
+        </div>
+        <nav class="header__nav">
+            <ul class="header__ul">
+                <li class="header__li"><a href="../html/index.html" class="header__link">Inicio</a></li>
+                <li class="header__li"><a href="../html/lessons.html" class="header__link">Lecciones</a></li>
+                <!-- <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li> -->
+                <li class="header__li"><a href="../html/resources.html" class="header__link">Recursos</a></li>
+            </ul>
+        </nav>
+        <div class="header__account-btn">
+            <li class="header__li"><a href="../html/profile.html" class="header__account-link header__account-link-singup">Perfil</a></li>
+        </div>
+    </header>
+</section>
+<br>
+<br>
 <!-- -------------------- MAIN SECTION -------------------- -->
     <section class="sections-group main-section">
         <main class="main">
@@ -823,9 +824,11 @@
 
         </main>
     </section>
+
 </body>
 <script src="https://kit.fontawesome.com/8be0b9b871.js" crossorigin="anonymous"></script>
 <script type="module" src="../js/lessons.js"></script>
 <script type="module" src="../js/lessons-tests.js"></script>
 <script src="../js/load-footer.js"></script>
+<script src="../js/theme.js"></script>
 </html>

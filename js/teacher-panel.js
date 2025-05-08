@@ -2,10 +2,10 @@
 import { supabase } from './supabaseClient.js';
 import { requireRole } from './auth.js';
 
-// 🔒 Solo acceso a profesores
+// Solo acceso a profesores
 requireRole(['teacher']);
 
-// 🔁 Cargar estudiantes desde la base de datos
+// Cargar estudiantes desde la base de datos
 export async function loadStudents() {
     const table = document.getElementById("students-table");
     const body = document.getElementById("students-body");

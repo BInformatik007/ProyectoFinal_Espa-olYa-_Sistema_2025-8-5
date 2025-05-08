@@ -9,6 +9,7 @@
 }
 
 .layout__title{
+    color: #000;
     font-size: 60px;
     text-align: center;
     margin-bottom: 24px;
@@ -54,12 +55,15 @@
 /* -------------------- MAIN SECTION --------------------  */
 
 .main__module-title{
+    color: #000;
     font-size: 30px;
+    font-weight: 600;
     margin-bottom: 32px;
 }
 
 .main__module-cards-container{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
     gap: 20px;
 }
 
@@ -68,6 +72,7 @@
     padding: 20px;
     cursor: pointer;
     border-radius: 10px;
+    box-shadow: 0 0 5px #0001;
     display: flex;
     flex: 1;
     transform-origin: center;
@@ -92,6 +97,7 @@
 }
 
 .main__module-cards-title{
+    color: #000;
     font-size: 18px;
 }
 

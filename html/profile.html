@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/font.css">
     <link rel="stylesheet" href="../css/header&footer.css">
     <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/dark-mode.css">
     <link rel="icon" href="../media/imgs_Login/logo-pestaña.png" type="image/png">
     <title>EspañolYa</title>
 </head>
@@ -25,13 +26,12 @@
             <ul class="header__ul">
                 <li class="header__li"><a href="../html/index.html" class="header__link">Inicio</a></li>
                 <li class="header__li"><a href="../html/lessons.html" class="header__link">Lecciones</a></li>
-                <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li>
-                <li class="header__li"><a href="../html/profile.html" class="header__link">Perfil</a></li>
+                <!-- <li class="header__li"><a href="../html/challenge.html" class="header__link">Desafíos</a></li> -->
+                <li class="header__li"><a href="../html/resources.html" class="header__link">Recursos</a></li>
             </ul>
         </nav>
         <div class="header__account-btn">
-            <a href="../html/login.html" class="header__account-link header__account-link-login">Iniciar sesión</a>
-            <a href="../html/login.html" class="header__account-link header__account-link-singup">Registrarse</a>
+            <li class="header__li"><a href="../html/profile.html" class="header__account-link header__account-link-singup">Perfil</a></li>
         </div>
     </header>
 </section>
@@ -74,9 +74,7 @@
                     <div class="profile__buttons-container">
                         <button class="profile__btn profile__edit-profile" id="profile__edit-profile">Editar perfil</button>
                         <button class="profile__btn profile__config-btn" id="profile__config-btn">Ajustes</button>
-                    
-                        <!-- Botón exclusivo para profesores -->
-                        <button class="profile__btn hidden" id="go-to-teacher-panel">Ir al Panel del Profesor</button>
+                        <button class="profile__btn hidden" id="go-to-teacher-panel">Panel administrativo</button>
                     </div>
                     
                 </div>
@@ -112,7 +110,7 @@
                         <input type="checkbox" id="toggle-theme">
                         <span class="slider"></span>
                     </label>
-                </div>
+                </div>                
 
                 <button id="logout" class="profile__btn log-out">Cerrar sesión</button>
                 
@@ -296,82 +294,10 @@
             <div class="profile__tab-content" id="insignias">
                 <h3 class="profile__tab-title">Tus insignias</h3>
 
-                <div class="profile__insignia-boxes-container">
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Principiante</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Aprendiz</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Explorador</p>
-                        </div>
-                    </div>
-                    
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Estudioso</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Intelectual</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Mentor</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Maestro</p>
-                        </div>
-                    </div>
-
-                    <div class="profile__insignia-box">
-                        <div class="profile__insignia-img-container">
-                            <i class="fa-solid fa-award profile__insignia-icons"></i>
-                        </div>
-                        <div class="profile__insignia-content-container">
-                            <p class="profile__insignia-text">Leyenda</p>
-                        </div>
-                    </div>
-
+                <div class="profile__insignia-boxes-container" id="insignia-container">
+                    <!-- Las insignias se cargarán aquí dinámicamente con JS -->
                 </div>
-
+                
             </div>
         </div>
     </div>
@@ -382,4 +308,5 @@
 <script src="https://kit.fontawesome.com/8be0b9b871.js" crossorigin="anonymous"></script>
 <script type="module" src="../js/profile.js"></script>
 <script src="../js/load-footer.js"></script>
+<script src="../js/theme.js"></script>
 </html>

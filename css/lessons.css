@@ -1,162 +1,205 @@
-.main-section{
+/* -------------------- BASE STYLES -------------------- */
+.main-section {
     margin: 100px 50px;
 }
 
-/* -------------------- MAIN-HEADER START -------------------- */
-
-.main__header-container{
+.main__header-container {
     margin: 20px 10px;
 }
 
-.main__content-container{
+.main__content-container {
     margin: 20px 0;
 }
 
-.main__content-title{
+.main__content-title {
     font-size: 2rem;
 }
 
-.main__filter-container{
+.main__filter-container {
     display: flex;
+    margin-top: 10px;
+    gap: 10px;
 }
 
-.main__lessons-category-select{
-    width: 70%;
-    margin-right: 5px;
+.main__lessons-category-select, .main__lessons-category-option {
+    width: 30%;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    background-color: #fff;
+    color: #222;
 }
 
-.main__filter-input{
-    width: 100%;
-    margin-right: 5px;
+.main__filter-input {
+    width: 70%;
     padding: 0 20px;
     border: solid 1px #333;
-}
-
-.main__filter-container{
-    margin-top: 10px;
-}
-
-.main__filters, .main__filter-input{
     border-radius: 10px;
     outline: none;
 }
 
-.main__filters{
+.main__filters {
     padding: 5px 20px;
     margin: 0 10px;
     border: none;
     cursor: pointer;
+    border-radius: 10px;
+    outline: none;
 }
 
-.easy{
+
+.easy, .medium, .hard {
+    color: #fff;
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.easy:hover,
+.medium:hover,
+.hard:hover {
+    transform: scale(1.03);
+}
+
+.easy {
     background-color: #10b981;
-    color: #fff;
-    transform-origin: center;
-    transition: transform 0.3s ease;
 }
 
-.easy:hover{
-    transform: scale(1.03);
-}
-
-.medium{
+.medium {
     background-color: #f59e0b;
-    color: #fff;
-    transform-origin: center;
-    transition: transform 0.3s ease;
 }
 
-.medium:hover{
-    transform: scale(1.03);
-}
-
-.hard{
+.hard {
     background-color: #ef4444;
-    color: #fff;
-    transform-origin: center;
-    transition: transform 0.3s ease;
 }
 
-.hard:hover{
-    transform: scale(1.03);
-}
-
-/* -------------------- MAIN-CARDS START -------------------- */
-
-.main__lessons-cards-container{
+/* -------------------- CARDS -------------------- */
+.main__lessons-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
-.main__lessons-cards{
+.main__lessons-cards {
     background-color: #fff;
     border-radius: 10px;
-    margin: 20px 10px;
     cursor: pointer;
-    box-shadow: 0 5px 5px 0 #ddd;
     transform-origin: center;
     transition: transform 0.3s ease;
 }
 
-.main__lessons-cards:hover{
+.main__lessons-cards:hover {
     transform: scale(1.03);
 }
 
-.main__lessons-cards-layout, .main__lessons-cards-img{
+.main__lessons-cards-layout,
+.main__lessons-cards-img {
     height: 200px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
 
-.main__lessons-cards-img{
+.main__lessons-cards-img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
-.main__lessons-cards-content{
+.main__lessons-cards-content {
     padding: 20px;
 }
 
-.main__lessons-cards-content-top{
+.main__lessons-cards-content-top {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
 }
 
-.main__lessons-cards-content-category{
+.main__lessons-cards-content-category,
+.main__lessons-cards-content-time {
+    font-size: 12px;
+}
+
+.main__lessons-cards-content-category {
     background-color: #10b981;
     color: #fff;
     padding: 3px 10px;
     border-radius: 20px;
 }
 
-.main__lessons-cards-content-category, .main__lessons-cards-content-time{
-    font-size: 12px;
-}
-
-.main__lessons-cards-content-title{
+.main__lessons-cards-content-title {
     font-size: 1.2rem;
     margin-bottom: 5px;
 }
 
-.main__lessons-cards-content-description{
+.main__lessons-cards-content-description {
     font-size: 0.9rem;
 }
 
-.easy-category{
+.easy-category {
     background-color: #10b981;
     color: #fff;
 }
 
-.medium-category{
+.medium-category {
     background-color: #f59e0b;
     color: #fff;
 }
 
-.hard-category{
+.hard-category {
     background-color: #ef4444;
     color: #fff;
+}
+
+/* -------------------- RESPONSIVE STYLES -------------------- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+    .main-section {
+        margin: 80px 30px;
+    }
+
+    .main__lessons-cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main__content-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Tablets and large phones (≤768px) */
+@media (max-width: 768px) {
+    .main__filter-container {
+        flex-direction: column;
+    }
+
+    .main__lessons-category-select,
+    .main__filter-input {
+        width: 100%;
+    }
+}
+
+/* Small phones (≤480px) */
+@media (max-width: 480px) {
+    .main-section {
+        margin: 40px 10px;
+    }
+
+    .main__content-title {
+        font-size: 1.4rem;
+    }
+
+    .main__filters,
+    .main__filter-input,
+    .main__lessons-category-select {
+        width: 100%;
+    }
+
+    .main__lessons-cards-content-title {
+        font-size: 1rem;
+    }
+
+    .main__lessons-cards-content-description {
+        font-size: 0.85rem;
+    }
 }

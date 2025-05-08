@@ -12,6 +12,7 @@ let correctCount = 0;
 let currentLessonId = null;
 let currentLessonModule = null;
 let currentUser = null;
+let sessionStartTime = null;
 
 document.addEventListener('DOMContentLoaded', async () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -26,6 +27,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         return;
     }
     currentUser = userData.user;
+
+    sessionStartTime = new Date();
 
     // Cargar lección
     const { data: lessonData } = await supabase
@@ -253,6 +256,15 @@ async function saveLessonProgress() {
             .eq('module_name', currentLessonModule);
     }
 
+    const sessionEndTime = new Date();
+
+    await supabase.from('lesson_sessions').insert({
+        user_id: currentUser.id,
+        lesson_id: currentLessonId,
+        started_at: sessionStartTime.toISOString(),
+        ended_at: sessionEndTime.toISOString()
+    });
+
     showSummary(earnedPoints);
 }
 
@@ -269,3 +281,21 @@ function showSummary(score) {
     // Ocultar botones previos
     lessonContentContainer.querySelector('.main-lessons-tests__btn-nav-container').style.display = 'none';
 }
+
+
+
+
+// DARK MODE SECTION
+
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+});
+
+document.getElementById('toggle-dark-mode').addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const newTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+    localStorage.setItem('theme', newTheme);
+});

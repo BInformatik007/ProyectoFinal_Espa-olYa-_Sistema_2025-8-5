@@ -59,7 +59,7 @@ function loadFooter() {
       <footer class="footer" style="text-align:center;padding:20px;">
         © ${new Date().getFullYear()} EspañolYa - Todos los derechos reservados
         <div style="margin-top:10px;">
-          <a href="../html/index.html">Inicio</a> | 
+          <a href="../index.html">Inicio</a> | 
           <a href="../html/lessons.html">Lecciones</a> | 
           <a href="../html/challenge.html">Desafíos</a> | 
           <a href="../html/profile.html">Perfil</a>
