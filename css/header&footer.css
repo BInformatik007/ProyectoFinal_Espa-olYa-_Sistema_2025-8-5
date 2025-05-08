@@ -302,6 +302,10 @@ section.footer-section {
         border-radius: 50%;
     }
 
+    .header__menu-icon{
+        display: block;
+    }
+
     .header__nav{
         display: none;
         background-color: #fff;
@@ -317,6 +321,7 @@ section.footer-section {
     }
 
     .header__ul{
+        flex-direction: column;
         height: 40vh;
         margin: auto;
         text-align: center;

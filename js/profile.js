@@ -112,9 +112,12 @@ async function actualizarPuntosLeccionesYNivel(userId) {
 }
 
 function obtenerNivelUsuario(puntos) {
-    if (puntos >= 30000) return "Experto";
-    if (puntos >= 20000) return "Avanzado";
-    if (puntos >= 6000) return "Intermedio";
+    if (puntos >= 32250) return "Leyenda";
+    if (puntos >= 28000) return "Maestro";
+    if (puntos >= 20000) return "Mentor";
+    if (puntos >= 10000) return "Intelectual";
+    if (puntos >= 4000) return "Estudioso";
+    if (puntos >= 2500) return "Explorador";
     if (puntos >= 900) return "Aprendiz";
     return "Principiante";
 }
