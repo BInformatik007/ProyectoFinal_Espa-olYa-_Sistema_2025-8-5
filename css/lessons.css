@@ -1,4 +1,10 @@
 /* -------------------- BASE STYLES -------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .main-section {
     margin: 100px 50px;
 }
@@ -19,35 +25,39 @@
     display: flex;
     margin-top: 10px;
     gap: 10px;
+    align-items: stretch; /* Alinea los elementos verticalmente */
 }
 
-.main__lessons-category-select, .main__lessons-category-option {
-    width: 30%;
-    padding: 10px;
+.main__lessons-category-select,
+.main__filter-input,
+.main__filters {
+    font-size: 1rem;
+    padding: 10px 15px;
     border-radius: 10px;
-    cursor: pointer;
+    outline: none;
+    border: 1px solid #ccc;
+    height: 100%; /* Hace que todos los inputs ocupen la misma altura */
+}
+
+.main__lessons-category-select {
+    width: 30%;
     background-color: #fff;
     color: #222;
+    cursor: pointer;
 }
 
 .main__filter-input {
     width: 70%;
-    padding: 0 20px;
-    border: solid 1px #333;
-    border-radius: 10px;
-    outline: none;
 }
 
 .main__filters {
-    padding: 5px 20px;
-    margin: 0 10px;
+    background-color: #10b981;
+    color: #fff;
     border: none;
     cursor: pointer;
-    border-radius: 10px;
-    outline: none;
 }
 
-
+/* -------------------- DIFICULTAD -------------------- */
 .easy, .medium, .hard {
     color: #fff;
     transform-origin: center;
@@ -85,6 +95,7 @@
     cursor: pointer;
     transform-origin: center;
     transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 .main__lessons-cards:hover {
@@ -93,14 +104,10 @@
 
 .main__lessons-cards-layout,
 .main__lessons-cards-img {
-    height: 200px;
+    aspect-ratio: 16 / 9;
+    width: 100%;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-}
-
-.main__lessons-cards-img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
 }
 
@@ -167,19 +174,24 @@
     }
 }
 
-/* Tablets and large phones (≤768px) */
+/* Tablets y móviles medianos (≤768px) */
 @media (max-width: 768px) {
     .main__filter-container {
         flex-direction: column;
     }
 
     .main__lessons-category-select,
-    .main__filter-input {
+    .main__filter-input,
+    .main__filters {
         width: 100%;
+    }
+
+    .main__lessons-cards-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Small phones (≤480px) */
+/* Móviles pequeños (≤480px) */
 @media (max-width: 480px) {
     .main-section {
         margin: 40px 10px;
@@ -201,5 +213,9 @@
 
     .main__lessons-cards-content-description {
         font-size: 0.85rem;
+    }
+
+    .main__lessons-cards-container {
+        grid-template-columns: 1fr;
     }
 }
