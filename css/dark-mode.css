@@ -69,7 +69,7 @@ body.dark-mode .profile__insignia-box {
     background-color: #1a1a1a;
 }
 
-body.dark-mode .layout__title, body.dark-mode .main__module-title, body.dark-mode .main__module-cards-title, body.dark-mode td {
+body.dark-mode .layout__title, body.dark-mode .main__module-title, body.dark-mode .main__module-cards-title, body.dark-mode td, body.dark-mode #label-dm, body.dark-mode #resultsCount, body.dark-mode #span-dm {
     color: #fff;
 }
 
@@ -77,7 +77,7 @@ body.dark-mode .header__account-link-singup, body.dark-mode .layout__btn-link {
     background-color: #10b981;
 }
 
-body.dark-mode .main-lessons-tests__preview-container, body.dark-mode .main-lessons-tests__lesson-content-container, body.dark-mode #searchInput, body.dark-mode .panel-container {
+body.dark-mode .main-lessons-tests__preview-container, body.dark-mode .main-lessons-tests__lesson-content-container, body.dark-mode #searchInput, body.dark-mode .panel-container, body.dark-mode #panel-section-dm {
     background-color: #1a1a1a;
 }
 
