@@ -28,7 +28,7 @@ creada a petición por el maestro Víctor Vázquez.
 </p>
 <h4>Paso 3: Inica el Proyecto</h4>
 <p>
-  Para iniciarlo solo debes ir a la carpeta Index.html y abrirlo con la Extension LiveShare de visual estudio o abrirlo de la manera que quieres y listo ya el proyecto funciona correctamente.
+  Para iniciarlo solo debes ir a la carpeta Index.html y abrirlo con la Extension <strong>Live Server</strong> de visual estudio o abrirlo de la manera que quieres y listo ya el proyecto funciona correctamente.
 </p>
 <h1>FIN DEL TUTORIAL</h1>
 *Momento Outro*
