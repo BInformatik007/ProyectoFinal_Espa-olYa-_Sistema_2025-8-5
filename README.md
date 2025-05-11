@@ -22,6 +22,7 @@ creada a petición por el maestro Víctor Vázquez.
 <p>
   Para descargar el Proyecto lo que debes hacer es darle al boton que dice <strong>CODE</strong> y luego darle a Download ZIP o Descargar ZIP.
 </p>
+<img src="../LP_Esp/media/img/imagenes-readme/paso1.png" alt="">
 <h4>Paso 2: Abrir el Proyecto</h4>
 <p>
   Una vez ya el archivo descargado solo debes <strong>descomprimirlo, moverlo a un lugar seguro fuera de la Carpeta de Descargas y abrirlo</strong> en Visual Estudio Code (solo arrastrandolo este se abre ahi).
